@@ -14,7 +14,11 @@ export default {
     },
     extend: {
       colors: {},
-      spacing: {},
+      // Figma `layout` semantic collection (see .claude/skills/figma-translation-framework).
+      spacing: {
+        "margin-x": "20px", // layout/margin/x
+        "section-max-w": "1200px", // layout/section/max-width
+      },
       borderRadius: {},
       fontSize: {},
     },
