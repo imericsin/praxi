@@ -12,15 +12,11 @@ export function Hero() {
       data-figma-node="70:5683"
       className="tablet:pt-24 desktop:pt-28 desktop:h-[900px] relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
     >
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <Image
-          src={bg}
-          alt=""
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
+      >
+        <Image src={bg} alt="" priority className="h-full w-auto max-w-none" />
       </div>
 
       <div className="max-w-section-max-w px-margin-x tablet:px-margin-x desktop:px-margin-x relative flex w-full flex-col items-start gap-16">
