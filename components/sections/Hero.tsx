@@ -10,7 +10,7 @@ export function Hero() {
   return (
     <section
       data-figma-node="70:5683"
-      className="tablet:pt-24 desktop:pt-28 relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
+      className="tablet:pt-24 desktop:pt-28 desktop:max-h-[900px] relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <Image
