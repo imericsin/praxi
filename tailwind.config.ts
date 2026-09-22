@@ -13,7 +13,21 @@ export default {
       desktop: "1024px",
     },
     extend: {
-      colors: {},
+      colors: {
+        // Figma color tokens (see .claude/skills/figma-translation-framework).
+        foreground: {
+          1: "#0c0a09", // Foreground/1
+          2: "#44403c", // Foreground/2
+          3: "#78716c", // Foreground/3
+        },
+        background: {
+          1: "#ffffff", // Background/1
+          2: "#f5f5f4", // Background/2
+        },
+        stone: {
+          200: "#e7e5e4", // color/stone-200
+        },
+      },
       // Figma `layout` semantic collection (see .claude/skills/figma-translation-framework).
       spacing: {
         "margin-x": "20px", // layout/margin/x
