@@ -33,6 +33,11 @@ export default {
         "margin-x": "20px", // layout/margin/x
         "section-max-w": "1200px", // layout/section/max-width
       },
+      // Figma `custom` collection (display-large) + font-family/sans token.
+      fontFamily: {
+        sans: ["var(--font-inter)"], // font-family/sans
+        "display-large": ["var(--font-inter-tight)"], // custom/*/display-large
+      },
       borderRadius: {},
       fontSize: {},
     },

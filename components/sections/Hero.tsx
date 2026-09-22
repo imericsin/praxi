@@ -26,7 +26,7 @@ export function Hero() {
       <div className="max-w-section-max-w px-margin-x tablet:px-margin-x desktop:px-margin-x relative flex w-full flex-col items-start gap-16">
         <div className="flex w-full max-w-[383px] flex-col items-center gap-6">
           <div className="flex w-full flex-col items-center justify-center gap-5">
-            <h1 className="tablet:text-[32px] desktop:text-[36px] w-full text-center text-[28px] leading-[1.15] font-semibold text-white">
+            <h1 className="tablet:text-[32px] desktop:text-[36px] font-display-large w-full text-center text-[28px] leading-[1.2] font-semibold text-balance text-white">
               Technical accounting,
               <br />
               reimagined.

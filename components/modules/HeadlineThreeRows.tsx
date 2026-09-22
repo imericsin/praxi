@@ -45,7 +45,7 @@ export function HeadlineThreeRows({
     >
       <div className="max-w-section-max-w tablet:flex-row tablet:gap-6 desktop:flex-row desktop:gap-6 flex w-full flex-col items-start gap-16">
         <div className="flex w-full flex-1 flex-col items-start gap-6">
-          <p className="text-foreground-1 w-full text-[36px] leading-[1.15] font-semibold">
+          <p className="text-foreground-1 font-display-large w-full text-[36px] leading-[1.2] font-semibold text-balance">
             {headline}
           </p>
           <p className="text-foreground-2 w-full max-w-[480px] text-base leading-6 font-normal">

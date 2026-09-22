@@ -54,7 +54,7 @@ export function HeadlineThreeColumn({
       className="bg-background-1 px-margin-x tablet:pb-24 tablet:pt-20 desktop:pb-36 desktop:pt-28 flex w-full flex-col items-center pt-10 pb-12"
     >
       <div className="max-w-section-max-w flex w-full flex-col items-start gap-16">
-        <p className="tablet:text-[32px] desktop:text-[36px] w-full max-w-[792px] text-[28px] leading-[1.2]">
+        <p className="tablet:text-[32px] desktop:text-[36px] font-display-large w-full max-w-[792px] text-[28px] leading-[1.2] text-balance">
           <span className="text-foreground-1 font-semibold">{headline}</span>{" "}
           <span className="text-foreground-3 font-semibold">{subheadline}</span>
         </p>
