@@ -51,7 +51,7 @@ export function Hero() {
       </div>
 
       {/* Tablet/Desktop: bleeding hero illustration + dimmer overlay */}
-      <div className="tablet:block desktop:w-[calc(100%+361.28px)] relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
+      <div className="tablet:block desktop:mt-[-40px] desktop:w-[calc(100%+361.28px)] relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
         <div className="relative aspect-[1800/640] w-full">
           <Image
             src={heroImage}
