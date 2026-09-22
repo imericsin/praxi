@@ -10,7 +10,7 @@ export function Hero() {
   return (
     <section
       data-figma-node="70:5683"
-      className="tablet:pt-24 desktop:pt-28 desktop:max-h-[900px] relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
+      className="tablet:pt-24 desktop:pt-28 desktop:h-[900px] relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <Image
@@ -40,19 +40,19 @@ export function Hero() {
       </div>
 
       {/* Mobile: static product shot, no bleed illustration */}
-      <div className="tablet:hidden relative mt-16 h-[292px] w-[375px] shrink-0">
+      <div className="tablet:hidden relative mt-16 aspect-[375/291.7] w-full shrink-0">
         <Image
           src={mobileImage}
           alt=""
           fill
           className="object-cover"
-          sizes="375px"
+          sizes="100vw"
         />
       </div>
 
       {/* Tablet/Desktop: bleeding hero illustration + dimmer overlay */}
-      <div className="tablet:block desktop:mt-[-40px] desktop:w-[calc(100%+361.28px)] relative mt-16 hidden w-[calc(100%+191.36px)] max-w-[1800px] shrink-0">
-        <div className="relative aspect-[1800/640] w-full">
+      <div className="tablet:block desktop:mt-[-40px] desktop:h-[calc(900px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
+        <div className="desktop:h-full desktop:w-auto relative aspect-[1800/640] w-full">
           <Image
             src={heroImage}
             alt=""
@@ -61,7 +61,7 @@ export function Hero() {
             sizes="100vw"
           />
         </div>
-        <div className="absolute inset-x-0 bottom-0 aspect-[1800/478] w-full">
+        <div className="desktop:right-auto desktop:h-[calc(100%*478/640)] desktop:w-auto absolute right-0 bottom-0 left-0 aspect-[1800/478] w-full">
           <Image
             src={dimmerTop}
             alt=""
