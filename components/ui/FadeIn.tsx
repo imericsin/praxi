@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useInView } from "@/lib/useInView";
 
 interface FadeInProps {
@@ -28,7 +28,16 @@ export function FadeIn({
     rootMargin: "0px 0px -10% 0px",
   });
 
-  const shown = immediate || isInView;
+  // `immediate` still needs to start hidden and flip to shown after mount --
+  // otherwise the very first paint is already at its end state and there's
+  // nothing for the CSS transition to animate from.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const shown = (immediate && mounted) || isInView;
 
   return (
     <div
