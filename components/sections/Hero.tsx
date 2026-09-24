@@ -10,7 +10,7 @@ export function Hero() {
   return (
     <section
       data-figma-node="70:5683"
-      className="tablet:pt-24 desktop:pt-28 desktop:h-[900px] px-margin-x relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
+      className="tablet:pt-24 desktop:pt-28 desktop:h-[840px] px-margin-x relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
     >
       {/* Background gradient is blurred to smooth over JPEG banding in
           the source asset; scaled up so the blur doesn't reveal edges. */}
@@ -52,7 +52,7 @@ export function Hero() {
       </div>
 
       {/* Tablet/Desktop: bleeding hero illustration */}
-      <div className="tablet:mt-[-80px] tablet:block desktop:mt-[-80px] desktop:h-[calc(900px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
+      <div className="tablet:mt-[-50px] tablet:block desktop:mt-[-50px] desktop:h-[calc(840px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
         <div className="desktop:h-full desktop:w-auto relative aspect-[1800/640] w-full">
           <Image
             src={heroImage}
