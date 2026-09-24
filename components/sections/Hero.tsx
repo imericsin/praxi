@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       data-figma-node="70:5683"
-      className="tablet:pt-24 desktop:pt-28 desktop:h-[900px] relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
+      className="tablet:pt-24 desktop:pt-28 desktop:h-[900px] px-margin-x relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
     >
       <div
         aria-hidden
@@ -20,7 +20,7 @@ export function Hero() {
         <Image src={bg} alt="" priority className="h-full w-auto max-w-none" />
       </div>
 
-      <div className="max-w-section-max-w px-margin-x tablet:px-margin-x desktop:px-margin-x relative flex w-full flex-col items-start gap-16">
+      <div className="max-w-section-max-w relative flex w-full flex-col items-start gap-16">
         <div className="flex w-full max-w-[383px] flex-col items-start gap-6">
           <div className="flex w-full flex-col items-start justify-center gap-5">
             <h1 className="tablet:text-[32px] desktop:text-[36px] font-display-large w-full text-left text-[28px] leading-[1.2] font-semibold text-balance text-white">
@@ -37,8 +37,10 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Mobile: static product shot, no bleed illustration */}
-      <div className="tablet:hidden relative mt-16 aspect-[375/291.7] w-full shrink-0">
+      {/* Mobile: static product shot, no bleed illustration. Breaks out
+          of the section's margin-x to hit edge-to-edge -- an intentional
+          exception for this instance only, not the general pattern. */}
+      <div className="tablet:hidden -mx-margin-x relative mt-16 aspect-[375/291.7] w-[calc(100%+2*20px)] shrink-0">
         <Image
           src={mobileImage}
           alt=""
