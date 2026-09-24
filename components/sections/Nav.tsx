@@ -10,14 +10,13 @@ import logo from "@/public/nav/logo.svg";
 // three; only the item gap changes (28px at 1440, 24px at narrower
 // widths). No hamburger/mobile menu variant exists in the file.
 //
-// Background fill (#444444) has no bound Figma variable/token in this
-// component -- flagged per pre-flight validation, using the literal
-// observed value rather than inventing a token.
+// Transparent background — the nav overlays page content rather than
+// sitting on its own solid bar.
 export function Nav() {
   return (
     <header
       data-figma-node="83:7866"
-      className="px-margin-x fixed inset-x-0 top-0 z-50 flex w-full flex-col items-center justify-center bg-[#444444] py-2"
+      className="px-margin-x fixed inset-x-0 top-0 z-50 flex w-full flex-col items-center justify-center bg-transparent py-2"
     >
       <div className="max-w-section-max-w flex w-full items-center justify-between">
         <div className="relative h-4 w-[73.263px] shrink-0">
