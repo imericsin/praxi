@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import { Footer } from "@/components/sections/Footer";
+import { Nav } from "@/components/sections/Nav";
 import "../styles/globals.css";
 
 // Figma `font-family/sans` token = Inter (body/UI text).
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${interTight.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <Nav />
         {children}
         <Footer />
       </body>
