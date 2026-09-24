@@ -13,10 +13,10 @@ import logo from "@/public/nav/logo.svg";
 // three; only the item gap changes (28px at 1440, 24px at narrower
 // widths). No hamburger/mobile menu variant exists in the file.
 //
-// Transparent at the top of the page; fills to #020202 (the same dark
-// tone used by Hero/Footer/CaseStudies) once the user scrolls, then
-// reverts to transparent back at the top. No scrolled state exists in
-// the Figma file — this behavior isn't spec'd there, only here.
+// Transparent at the top of the page; fills to #020202 at 80% opacity
+// with a 12px backdrop blur once the user scrolls, then reverts to
+// transparent back at the top. No scrolled state exists in the Figma
+// file — this behavior isn't spec'd there, only here.
 export function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -31,7 +31,7 @@ export function Nav() {
     <header
       data-figma-node="83:7866"
       className={`px-margin-x fixed inset-x-0 top-0 z-50 flex w-full flex-col items-center justify-center py-2 transition-colors ${
-        isScrolled ? "bg-[#020202]" : "bg-transparent"
+        isScrolled ? "bg-[#020202]/80 backdrop-blur-[12px]" : "bg-transparent"
       }`}
     >
       <div className="max-w-section-max-w flex w-full items-center justify-between">
