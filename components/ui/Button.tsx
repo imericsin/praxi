@@ -1,24 +1,24 @@
 import { ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "primary" | "secondary";
+// Figma component "Button" (node 81:7194, state=Default, style=Standard).
+type ButtonVariant = "standard";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: "bg-black text-white hover:bg-neutral-800",
-  secondary: "bg-white text-black border border-black hover:bg-neutral-100",
+  standard: "bg-white text-foreground-1 hover:bg-neutral-100",
 };
 
 export function Button({
-  variant = "primary",
+  variant = "standard",
   className = "",
   ...props
 }: ButtonProps) {
   return (
     <button
-      className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${variantClasses[variant]} ${className}`}
+      className={`flex items-center justify-center rounded-[6px] px-4 py-3 font-sans text-xs leading-none font-medium whitespace-nowrap transition-colors ${variantClasses[variant]} ${className}`}
       {...props}
     />
   );

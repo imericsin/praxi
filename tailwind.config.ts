@@ -31,6 +31,9 @@ export default {
         muted: {
           foreground: "#a3a3a3", // base/muted-foreground
         },
+        slate: {
+          300: "#cbd5e1", // color/slate-300
+        },
       },
       // Figma `layout` semantic collection (see .claude/skills/figma-translation-framework).
       spacing: {
