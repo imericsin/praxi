@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { HeadlineThreeColumn } from "@/components/modules/HeadlineThreeColumn";
 import { HeadlineThreeRows } from "@/components/modules/HeadlineThreeRows";
+import { CaseStudies } from "@/components/sections/CaseStudies";
 import card1 from "@/public/headline-3col/card-1.png";
 import card2 from "@/public/headline-3col/card-2.png";
 import card3 from "@/public/headline-3col/card-3.png";
@@ -54,6 +55,7 @@ export default function Home() {
           },
         ]}
       />
+      <CaseStudies />
     </main>
   );
 }

@@ -26,6 +26,10 @@ export default {
         },
         stone: {
           200: "#e7e5e4", // color/stone-200
+          400: "#a8a29e", // color/stone-400
+        },
+        muted: {
+          foreground: "#a3a3a3", // base/muted-foreground
         },
       },
       // Figma `layout` semantic collection (see .claude/skills/figma-translation-framework).
@@ -33,10 +37,11 @@ export default {
         "margin-x": "20px", // layout/margin/x
         "section-max-w": "1200px", // layout/section/max-width
       },
-      // Figma `custom` collection (display-large) + font-family/sans token.
+      // Figma `custom` collection (display-large/display-small) + font-family/sans token.
       fontFamily: {
         sans: ["var(--font-inter)"], // font-family/sans
         "display-large": ["var(--font-inter-tight)"], // custom/*/display-large
+        "display-small": ["var(--font-inter-tight)"], // custom/*/display-small
       },
       borderRadius: {},
       fontSize: {},
