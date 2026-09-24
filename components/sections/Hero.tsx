@@ -52,7 +52,7 @@ export function Hero() {
       </div>
 
       {/* Tablet/Desktop: bleeding hero illustration */}
-      <div className="tablet:mt-[-50px] tablet:block desktop:mt-[-50px] desktop:h-[calc(840px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
+      <div className="tablet:mt-[-70px] tablet:block desktop:mt-[-70px] desktop:h-[calc(840px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
         <div className="desktop:h-full desktop:w-auto relative aspect-[1800/640] w-full">
           <Image
             src={heroImage}
@@ -70,7 +70,7 @@ export function Hero() {
           background got blurred (see above). */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#020202] to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#020202] from-10% to-transparent to-100%"
       />
     </section>
   );
