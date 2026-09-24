@@ -1,4 +1,4 @@
-import { Hero } from "@/components/sections/Hero";
+import { HeroV2 as Hero } from "@/components/sections/HeroV2";
 import { LogoStripMobile } from "@/components/sections/LogoStripMobile";
 import { HeadlineThreeColumn } from "@/components/modules/HeadlineThreeColumn";
 import { HeadlineThreeRows } from "@/components/modules/HeadlineThreeRows";
