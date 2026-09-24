@@ -99,7 +99,7 @@ export function Hero() {
       <FadeIn
         immediate
         index={4}
-        className="tablet:block desktop:bottom-16 max-w-section-max-w px-margin-x absolute inset-x-0 bottom-10 mx-auto hidden w-full"
+        className="tablet:block desktop:bottom-16 max-w-section-max-w absolute inset-x-0 bottom-10 mx-auto hidden w-full"
       >
         <LogoStrip />
       </FadeIn>
