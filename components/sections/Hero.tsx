@@ -13,28 +13,14 @@ export function Hero() {
       data-figma-node="70:5683"
       className="tablet:pt-24 desktop:pt-28 desktop:h-[900px] px-margin-x relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
     >
+      {/* Background gradient is blurred to smooth over JPEG banding in
+          the source asset; scaled up so the blur doesn't reveal edges. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
+        className="pointer-events-none absolute inset-0 flex scale-110 items-center justify-center overflow-hidden blur-[24px]"
       >
         <Image src={bg} alt="" priority className="h-full w-auto max-w-none" />
       </div>
-
-      {/* Noise overlay to mask JPEG banding on the background gradient. */}
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute inset-0 size-full opacity-[0.05]"
-      >
-        <filter id="hero-noise">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.9"
-            numOctaves="2"
-            stitchTiles="stitch"
-          />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#hero-noise)" />
-      </svg>
 
       <div className="max-w-section-max-w relative flex w-full flex-col items-start gap-16">
         <div className="flex w-full max-w-[383px] flex-col items-start gap-6">
