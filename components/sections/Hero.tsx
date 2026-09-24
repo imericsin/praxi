@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { FadeIn } from "@/components/ui/FadeIn";
 import bg from "@/public/hero/bg.png";
 import heroImage from "@/public/hero/hero-image.png";
 import mobileImage from "@/public/hero/mobile-image.png";
@@ -23,25 +24,37 @@ export function Hero() {
 
       <div className="max-w-section-max-w relative z-10 flex w-full flex-col items-start gap-16">
         <div className="flex w-full max-w-[383px] flex-col items-start gap-6">
-          <div className="flex w-full flex-col items-start justify-center gap-5">
+          <FadeIn
+            immediate
+            index={0}
+            className="flex w-full flex-col items-start justify-center gap-5"
+          >
             <h1 className="tablet:text-[32px] desktop:text-[36px] font-display-large w-full text-left text-[28px] leading-[1.2] font-semibold text-balance text-white">
               Technical accounting,
               <br />
               reimagined.
             </h1>
-          </div>
-          <p className="w-full text-left text-base leading-[1.33] font-normal text-white/60">
-            Research, contract analysis, audit-ready checklists, and memos — all
-            in one platform.
-          </p>
-          <Button>Schedule Demo →</Button>
+          </FadeIn>
+          <FadeIn immediate index={1} className="w-full">
+            <p className="w-full text-left text-base leading-[1.33] font-normal text-white/60">
+              Research, contract analysis, audit-ready checklists, and memos —
+              all in one platform.
+            </p>
+          </FadeIn>
+          <FadeIn immediate index={2}>
+            <Button>Schedule Demo →</Button>
+          </FadeIn>
         </div>
       </div>
 
       {/* Mobile: static product shot, no bleed illustration. Breaks out
           of the section's margin-x to hit edge-to-edge -- an intentional
           exception for this instance only, not the general pattern. */}
-      <div className="tablet:hidden -mx-margin-x relative mt-[-60px] aspect-[375/291.7] w-[calc(100%+2*20px)] shrink-0">
+      <FadeIn
+        immediate
+        index={3}
+        className="tablet:hidden -mx-margin-x relative mt-[-60px] aspect-[375/291.7] w-[calc(100%+2*20px)] shrink-0"
+      >
         <Image
           src={mobileImage}
           alt=""
@@ -49,10 +62,14 @@ export function Hero() {
           className="object-cover"
           sizes="100vw"
         />
-      </div>
+      </FadeIn>
 
       {/* Tablet/Desktop: bleeding hero illustration */}
-      <div className="tablet:mt-[-70px] tablet:block desktop:mt-[-70px] desktop:h-[calc(840px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
+      <FadeIn
+        immediate
+        index={3}
+        className="tablet:mt-[-70px] tablet:block desktop:mt-[-70px] desktop:h-[calc(840px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0"
+      >
         <div className="desktop:h-full desktop:w-auto relative aspect-[1800/640] w-full">
           <Image
             src={heroImage}
@@ -62,7 +79,7 @@ export function Hero() {
             sizes="100vw"
           />
         </div>
-      </div>
+      </FadeIn>
 
       {/* Linear fade from transparent to the section's own background,
           covering the bottom portion of the section -- replaces the old

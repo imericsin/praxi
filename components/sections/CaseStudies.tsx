@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
+import { FadeIn } from "@/components/ui/FadeIn";
 import bg from "@/public/case-studies/bg.png";
 import logoTyler from "@/public/case-studies/logo-tyler.png";
 import logoSoaprojects from "@/public/case-studies/logo-soaprojects.png";
@@ -48,7 +49,10 @@ export function CaseStudies() {
       </div>
 
       <div className="max-w-section-max-w relative flex w-full flex-col items-start gap-10">
-        <div className="flex w-full max-w-[382px] flex-col items-start gap-4">
+        <FadeIn
+          index={0}
+          className="flex w-full max-w-[382px] flex-col items-start gap-4"
+        >
           <p className="font-display-large tablet:text-[32px] desktop:text-[36px] w-full text-[28px] leading-[1.2] font-semibold text-white">
             Case Studies
           </p>
@@ -56,18 +60,26 @@ export function CaseStudies() {
             See how leading firms are using Praxi to move faster without cutting
             corners.
           </p>
-        </div>
+        </FadeIn>
 
         {/* Desktop/Tablet: equal-width cards side by side */}
         <div className="tablet:flex hidden w-full gap-6">
-          <CaseStudyCard {...tylerCard} />
-          <CaseStudyCard {...soaprojectsCard} />
+          <FadeIn index={1} className="flex-1">
+            <CaseStudyCard {...tylerCard} />
+          </FadeIn>
+          <FadeIn index={2} className="flex-1">
+            <CaseStudyCard {...soaprojectsCard} />
+          </FadeIn>
         </div>
 
         {/* Mobile: fixed-width cards, horizontal scroll, reversed order */}
         <div className="-mx-margin-x px-margin-x tablet:hidden flex w-[calc(100%+2*20px)] gap-4 overflow-x-auto">
-          <CaseStudyCard {...soaprojectsCard} fixedWidth />
-          <CaseStudyCard {...tylerCard} fixedWidth />
+          <FadeIn index={1}>
+            <CaseStudyCard {...soaprojectsCard} fixedWidth />
+          </FadeIn>
+          <FadeIn index={2}>
+            <CaseStudyCard {...tylerCard} fixedWidth />
+          </FadeIn>
         </div>
       </div>
     </section>

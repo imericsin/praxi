@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 // module_headline-3-rows — headline/subcopy beside a divided 3-row list,
 // stacks vertically on mobile. Figma: node 65:3578, breakpoints
@@ -46,7 +47,10 @@ export function HeadlineThreeRows({
       className="bg-background-2 px-margin-x tablet:pb-24 tablet:pt-20 desktop:pb-36 desktop:pt-28 flex w-full flex-col items-center pt-10 pb-12"
     >
       <div className="max-w-section-max-w tablet:flex-row tablet:gap-6 desktop:flex-row desktop:gap-6 flex w-full flex-col items-start gap-16">
-        <div className="flex w-full flex-1 flex-col items-start gap-6">
+        <FadeIn
+          index={0}
+          className="flex w-full flex-1 flex-col items-start gap-6"
+        >
           <p className="text-foreground-1 font-display-large w-full text-[36px] leading-[1.2] font-semibold text-balance">
             {headline}
           </p>
@@ -54,10 +58,12 @@ export function HeadlineThreeRows({
             {subheadline}
           </p>
           <Button variant="secondary">Schedule Demo →</Button>
-        </div>
+        </FadeIn>
         <div className="flex w-full flex-1 flex-col items-start gap-6">
-          {rows.map((row) => (
-            <Row key={row.title} {...row} />
+          {rows.map((row, i) => (
+            <FadeIn key={row.title} index={i + 1} className="w-full">
+              <Row {...row} />
+            </FadeIn>
           ))}
         </div>
       </div>

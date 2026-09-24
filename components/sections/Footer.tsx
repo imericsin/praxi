@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { FadeIn } from "@/components/ui/FadeIn";
 import bg from "@/public/footer/bg.png";
 import logo from "@/public/footer/logo.svg";
 
@@ -27,19 +28,25 @@ export function Footer() {
 
       {/* CTA */}
       <div className="max-w-section-max-w relative flex w-full items-center justify-center gap-6">
-        <div className="tablet:items-center desktop:items-center flex w-full flex-1 flex-col items-start gap-6">
+        <FadeIn
+          index={0}
+          className="tablet:items-center desktop:items-center flex w-full flex-1 flex-col items-start gap-6"
+        >
           <p className="font-display-large tablet:text-center desktop:text-center w-full text-[36px] leading-[1.2] font-semibold text-white">
             Work smarter.
             <br />
             Account with confidence.
           </p>
           <Button>Schedule Demo →</Button>
-        </div>
+        </FadeIn>
       </div>
 
       {/* Link columns */}
       <div className="max-w-section-max-w tablet:flex-row desktop:flex-row relative flex w-full flex-col items-start gap-6">
-        <div className="flex w-full flex-1 flex-col items-start gap-5">
+        <FadeIn
+          index={1}
+          className="flex w-full flex-1 flex-col items-start gap-5"
+        >
           <div className="relative h-5 w-[91.579px] shrink-0">
             <Image
               src={logo}
@@ -53,9 +60,12 @@ export function Footer() {
             <br />
             accounting workflow
           </p>
-        </div>
+        </FadeIn>
 
-        <div className="flex w-full flex-1 flex-col items-center gap-6">
+        <FadeIn
+          index={2}
+          className="flex w-full flex-1 flex-col items-center gap-6"
+        >
           <div className="flex w-full items-start gap-6 font-sans font-medium">
             <div className="flex flex-1 flex-col items-start gap-4">
               <p className="w-full text-xs leading-none text-slate-300">Menu</p>
@@ -86,7 +96,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </div>
 
       {/* Legal row */}
