@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import { Button } from "@/components/ui/Button";
 
 // module_headline-3-column — headline + 3-up card grid (stacks to 1 column
 // on mobile). Figma: node 65:3514, breakpoints 65:3149/65:3515/65:3536.
@@ -54,10 +55,15 @@ export function HeadlineThreeColumn({
       className="bg-background-1 px-margin-x tablet:pb-24 tablet:pt-20 desktop:pb-36 desktop:pt-28 flex w-full flex-col items-center pt-10 pb-12"
     >
       <div className="max-w-section-max-w flex w-full flex-col items-start gap-16">
-        <p className="tablet:text-[32px] desktop:text-[36px] font-display-large w-full max-w-[792px] text-[28px] leading-[1.2] text-balance">
-          <span className="text-foreground-1 font-semibold">{headline}</span>{" "}
-          <span className="text-foreground-3 font-semibold">{subheadline}</span>
-        </p>
+        <div className="flex w-full max-w-[792px] flex-col items-start gap-7">
+          <p className="tablet:text-[32px] desktop:text-[36px] font-display-large w-full text-[28px] leading-[1.2] text-balance">
+            <span className="text-foreground-1 font-semibold">{headline}</span>{" "}
+            <span className="text-foreground-3 font-semibold">
+              {subheadline}
+            </span>
+          </p>
+          <Button variant="secondary">Schedule Demo →</Button>
+        </div>
         <div className="tablet:flex-row tablet:gap-6 desktop:gap-6 flex w-full flex-col items-start gap-10">
           {cards.map((card) => (
             <ImageCard key={card.title} {...card} />

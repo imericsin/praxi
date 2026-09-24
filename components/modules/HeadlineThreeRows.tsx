@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/Button";
+
 // module_headline-3-rows — headline/subcopy beside a divided 3-row list,
 // stacks vertically on mobile. Figma: node 65:3578, breakpoints
 // 65:3579/66:3737/66:3757 (all three are named "Desktop" in the file —
@@ -51,6 +53,7 @@ export function HeadlineThreeRows({
           <p className="text-foreground-2 w-full max-w-[480px] text-base leading-6 font-normal">
             {subheadline}
           </p>
+          <Button variant="secondary">Schedule Demo →</Button>
         </div>
         <div className="flex w-full flex-1 flex-col items-start gap-6">
           {rows.map((row) => (

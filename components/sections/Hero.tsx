@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
 import bg from "@/public/hero/bg.png";
 import heroImage from "@/public/hero/hero-image.png";
 import dimmerTop from "@/public/hero/dimmer-top.png";
@@ -32,6 +33,7 @@ export function Hero() {
             Research, contract analysis, audit-ready checklists, and memos — all
             in one platform.
           </p>
+          <Button>Schedule Demo →</Button>
         </div>
       </div>
 
