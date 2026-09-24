@@ -52,7 +52,7 @@ export function Hero() {
       </div>
 
       {/* Tablet/Desktop: bleeding hero illustration */}
-      <div className="tablet:block desktop:mt-[-40px] desktop:h-[calc(900px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
+      <div className="tablet:block desktop:mt-[-80px] desktop:h-[calc(900px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
         <div className="desktop:h-full desktop:w-auto relative aspect-[1800/640] w-full">
           <Image
             src={heroImage}
