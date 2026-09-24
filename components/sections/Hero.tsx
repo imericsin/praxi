@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import bg from "@/public/hero/bg.png";
 import heroImage from "@/public/hero/hero-image.png";
-import dimmerTop from "@/public/hero/dimmer-top.png";
 import mobileImage from "@/public/hero/mobile-image.png";
 
 // section_hero — full-bleed background, contained copy block.
@@ -22,7 +21,7 @@ export function Hero() {
         <Image src={bg} alt="" priority className="h-full w-auto max-w-none" />
       </div>
 
-      <div className="max-w-section-max-w relative flex w-full flex-col items-start gap-16">
+      <div className="max-w-section-max-w relative z-10 flex w-full flex-col items-start gap-16">
         <div className="flex w-full max-w-[383px] flex-col items-start gap-6">
           <div className="flex w-full flex-col items-start justify-center gap-5">
             <h1 className="tablet:text-[32px] desktop:text-[36px] font-display-large w-full text-left text-[28px] leading-[1.2] font-semibold text-balance text-white">
@@ -52,7 +51,7 @@ export function Hero() {
         />
       </div>
 
-      {/* Tablet/Desktop: bleeding hero illustration + dimmer overlay */}
+      {/* Tablet/Desktop: bleeding hero illustration */}
       <div className="tablet:block desktop:mt-[-40px] desktop:h-[calc(900px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0">
         <div className="desktop:h-full desktop:w-auto relative aspect-[1800/640] w-full">
           <Image
@@ -63,16 +62,16 @@ export function Hero() {
             sizes="100vw"
           />
         </div>
-        <div className="desktop:right-auto desktop:h-[calc(100%*478/640)] desktop:w-auto absolute right-0 bottom-0 left-0 aspect-[1800/478] w-full">
-          <Image
-            src={dimmerTop}
-            alt=""
-            fill
-            className="pointer-events-none object-cover"
-            sizes="100vw"
-          />
-        </div>
       </div>
+
+      {/* Linear fade from transparent to the section's own background,
+          covering the bottom portion of the section -- replaces the old
+          image-based dimmer overlay, which visually clashed once the
+          background got blurred (see above). */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#020202] to-transparent"
+      />
     </section>
   );
 }
