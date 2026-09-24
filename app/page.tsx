@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { LogoStripMobile } from "@/components/sections/LogoStripMobile";
 import { HeadlineThreeColumn } from "@/components/modules/HeadlineThreeColumn";
 import { HeadlineThreeRows } from "@/components/modules/HeadlineThreeRows";
 import { CaseStudies } from "@/components/sections/CaseStudies";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main className="flex-1">
       <Hero />
+      <LogoStripMobile />
       <HeadlineThreeColumn
         headline="The technical accounting tool of the future."
         subheadline="Designed for modern teams, powered by AI workflows built by industry experts."

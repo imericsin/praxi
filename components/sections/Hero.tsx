@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { LogoStrip } from "@/components/ui/LogoStrip";
 import bg from "@/public/hero/bg.png";
 import heroImage from "@/public/hero/hero-image.png";
 import mobileImage from "@/public/hero/mobile-image.png";
@@ -11,7 +12,7 @@ export function Hero() {
   return (
     <section
       data-figma-node="70:5683"
-      className="tablet:pt-24 desktop:pt-28 desktop:h-[840px] px-margin-x relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
+      className="tablet:pt-24 desktop:pt-28 desktop:h-[900px] px-margin-x relative flex w-full flex-col items-center overflow-hidden bg-[#020202] pt-20"
     >
       {/* Background gradient is blurred to smooth over JPEG banding in
           the source asset; scaled up so the blur doesn't reveal edges. */}
@@ -68,7 +69,7 @@ export function Hero() {
       <FadeIn
         immediate
         index={3}
-        className="tablet:mt-[-70px] tablet:block desktop:mt-[-70px] desktop:h-[calc(840px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0"
+        className="tablet:mt-[-90px] tablet:block desktop:mt-[-90px] desktop:h-[calc(900px*0.76)] desktop:w-auto relative mt-16 hidden w-[calc(100%+191.36px)] shrink-0"
       >
         <div className="desktop:h-full desktop:w-auto relative aspect-[1800/640] w-full">
           <Image
@@ -89,6 +90,19 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#020202] from-10% to-transparent to-100%"
       />
+
+      {/* Desktop/Tablet only: "Trusted by" logo strip, absolutely
+          positioned near the bottom of the Hero itself. Mobile drops this
+          entirely in favor of the separate LogoStripMobile section
+          (node 92:8003) rendered below the Hero -- a different module,
+          not a responsive variant of this one. */}
+      <FadeIn
+        immediate
+        index={4}
+        className="tablet:block desktop:bottom-16 max-w-section-max-w px-margin-x absolute inset-x-0 bottom-10 mx-auto hidden w-full"
+      >
+        <LogoStrip />
+      </FadeIn>
     </section>
   );
 }
