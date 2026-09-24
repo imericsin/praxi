@@ -41,7 +41,7 @@ export function Hero() {
       {/* Mobile: static product shot, no bleed illustration. Breaks out
           of the section's margin-x to hit edge-to-edge -- an intentional
           exception for this instance only, not the general pattern. */}
-      <div className="tablet:hidden -mx-margin-x relative mt-16 aspect-[375/291.7] w-[calc(100%+2*20px)] shrink-0">
+      <div className="tablet:hidden -mx-margin-x relative mt-[-60px] aspect-[375/291.7] w-[calc(100%+2*20px)] shrink-0">
         <Image
           src={mobileImage}
           alt=""
