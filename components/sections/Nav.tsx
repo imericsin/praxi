@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import logo from "@/public/nav/logo.svg";
@@ -17,7 +19,16 @@ import logo from "@/public/nav/logo.svg";
 // with a 12px backdrop blur once the user scrolls, then reverts to
 // transparent back at the top. No scrolled state exists in the Figma
 // file — this behavior isn't spec'd there, only here.
+//
+// Only the homepage hero is designed to sit directly under a transparent
+// nav -- every other route (light-background pages included) always
+// renders the filled/scrolled treatment, otherwise the white logo/link
+// text is invisible against a light section at the top of the page. Not
+// spec'd in Figma (no other page frame shows the Nav at rest) -- a
+// best-practice fallback per the translation framework.
 export function Nav() {
+  const pathname = usePathname();
+  const isHomepage = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -27,11 +38,13 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isFilled = isScrolled || !isHomepage;
+
   return (
     <header
       data-figma-node="83:7866"
       className={`px-margin-x fixed inset-x-0 top-0 z-50 flex w-full flex-col items-center justify-center py-2 transition-colors ${
-        isScrolled ? "bg-[#020202]/80 backdrop-blur-[12px]" : "bg-transparent"
+        isFilled ? "bg-[#020202]/80 backdrop-blur-[12px]" : "bg-transparent"
       }`}
     >
       <div className="max-w-section-max-w flex w-full items-center justify-between">
@@ -44,10 +57,13 @@ export function Nav() {
           />
         </div>
         <div className="desktop:gap-7 flex items-center gap-6">
-          <p className="text-right font-sans text-xs leading-4 font-medium whitespace-nowrap text-white">
+          <Link
+            href="/about-us"
+            className="text-right font-sans text-xs leading-4 font-medium whitespace-nowrap text-white"
+          >
             About
-          </p>
-          <Button>Schedule Demo →</Button>
+          </Link>
+          <Button href="/#schedule-demo">Schedule Demo →</Button>
         </div>
       </div>
     </header>

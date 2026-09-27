@@ -28,6 +28,7 @@ import mobileImage from "@/public/hero/mobile-image.png";
 export function HeroV2() {
   return (
     <section
+      id="schedule-demo"
       data-figma-node="92:8455"
       className="px-margin-x tablet:pt-24 desktop:h-[900px] desktop:pt-28 relative flex w-full flex-col items-center overflow-hidden bg-[#0c0a09] pt-20"
     >

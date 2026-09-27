@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
 import bg from "@/public/footer/bg.png";
@@ -13,8 +14,20 @@ import logo from "@/public/footer/logo.svg";
 // at 36px (custom/display-large) across all three breakpoints rather than
 // scaling down — confirmed via the Figma variable data, not an oversight.
 
-const menuLinks = ["About", "Schedule Demo", "FAQs", "Trust Center"];
-const connectLinks = ["Partnerships", "LinkedIn"];
+const menuLinks = [
+  { label: "About", href: "/about-us" },
+  { label: "Schedule Demo", href: "/#schedule-demo" },
+  { label: "FAQs", href: "/faq" },
+  { label: "Trust Center", href: "/trust-center" },
+];
+const connectLinks = [
+  { label: "Partnerships", href: "/alliances" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/praxi" },
+];
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+];
 
 export function Footer() {
   return (
@@ -71,12 +84,13 @@ export function Footer() {
               <p className="w-full text-xs leading-none text-slate-300">Menu</p>
               <div className="flex w-full flex-col items-start gap-2.5">
                 {menuLinks.map((link) => (
-                  <p
-                    key={link}
+                  <Link
+                    key={link.label}
+                    href={link.href}
                     className="w-full text-sm leading-none text-white"
                   >
-                    {link}
-                  </p>
+                    {link.label}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -86,12 +100,13 @@ export function Footer() {
               </p>
               <div className="flex w-full flex-col items-start gap-2.5">
                 {connectLinks.map((link) => (
-                  <p
-                    key={link}
+                  <Link
+                    key={link.label}
+                    href={link.href}
                     className="w-full text-sm leading-none text-white"
                   >
-                    {link}
-                  </p>
+                    {link.label}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -101,10 +116,16 @@ export function Footer() {
 
       {/* Legal row */}
       <div className="max-w-section-max-w tablet:flex-row tablet:items-start tablet:gap-6 desktop:flex-row desktop:items-start desktop:gap-6 relative flex w-full flex-col items-start gap-1">
-        <div className="tablet:justify-start desktop:justify-start flex w-full flex-1 items-center justify-between">
-          <p className="font-sans text-xs leading-4 font-normal whitespace-nowrap text-white">
-            Privacy Policy Terms of Service
-          </p>
+        <div className="tablet:justify-start desktop:justify-start flex w-full flex-1 items-center justify-between gap-4">
+          {legalLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="font-sans text-xs leading-4 font-normal whitespace-nowrap text-white"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
         <div className="flex w-full flex-1 items-start justify-end">
           <p className="text-right font-sans text-xs leading-4 font-normal whitespace-nowrap text-white">
