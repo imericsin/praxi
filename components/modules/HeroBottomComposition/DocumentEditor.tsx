@@ -141,8 +141,11 @@ export function DocumentEditor() {
           mt-[4.5%] adds the extra breathing room Figma has between the
           toolbar and this block (~45px in a 905px-tall card, ~5% -- more
           than the shared gap-2 the rest of the header stack uses). */}
-      <div className="mt-[4.5%] flex w-full flex-col gap-3 px-[10.5%] text-zinc-300 sm:gap-5">
-        <div className="flex flex-col gap-1.5">
+      <div
+        className="mt-[4.5%] flex w-full flex-col px-[10.5%] text-zinc-300"
+        style={{ gap: "5.9%" }}
+      >
+        <div className="flex flex-col gap-[2.2%]">
           <p className="font-sans text-[10px] leading-none font-semibold sm:text-xs">
             Exhibit 10.20
           </p>
@@ -162,7 +165,7 @@ export function DocumentEditor() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-[2.2%]">
           <p className="font-sans text-xs leading-none font-semibold sm:text-sm">
             MASTER SERVICES AND LICENSE AGREEMENT
           </p>
@@ -173,7 +176,7 @@ export function DocumentEditor() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-[2.2%]">
           <p className="font-sans text-[10px] leading-none font-semibold sm:text-xs">
             Background
           </p>
