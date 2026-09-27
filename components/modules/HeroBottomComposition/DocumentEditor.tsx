@@ -132,24 +132,20 @@ export function DocumentEditor() {
 
       {/* Body copy sits inset from the card's own edges by more than the
           header/toolbar above it (Figma: body block at left-82px/width-608px
-          inside a 772px-wide card -- a ~10.6% inset each side -- vs. the
-          toolbar's ~2.3% inset). The extra px-[10.5%] approximates that
-          ratio responsively; it's also what pushes the card's rendered
-          height up to match Figma's taller proportions, since the body
-          text now wraps across more lines at a narrower measure.
+          inside a 772px-wide card, vs. the toolbar's ~18px inset) -- fixed
+          px-[82px], matching the fixed-size, non-responsive treatment the
+          whole composition now uses (see HeroBottomComposition/index.tsx).
 
-          mt-[4.5%] adds the extra breathing room Figma has between the
-          toolbar and this block (~45px in a 905px-tall card, ~5% -- more
-          than the shared gap-2 the rest of the header stack uses). */}
-      <div
-        className="mt-[4.5%] flex w-full flex-col px-[10.5%] text-zinc-300"
-        style={{ gap: "5.9%" }}
-      >
-        <div className="flex flex-col gap-[2.2%]">
-          <p className="font-sans text-[10px] leading-none font-semibold sm:text-xs">
+          40px gap between the three sections (Exhibit 10.20 / MASTER
+          SERVICES AND LICENSE AGREEMENT / Background), per explicit
+          request -- previously a percentage-based gap that collapsed once
+          the responsive scaling was removed. */}
+      <div className="mt-10 flex w-full flex-col gap-10 px-[82px] text-zinc-300">
+        <div className="flex flex-col gap-2">
+          <p className="font-sans text-xs leading-none font-semibold">
             Exhibit 10.20
           </p>
-          <div className="font-sans text-[9px] leading-snug font-medium text-zinc-400/40 sm:text-[10px]">
+          <div className="font-sans text-[10px] leading-snug font-medium text-zinc-400/40">
             <p className="mb-0">
               CERTAIN CONFIDENTIAL INFORMATION, MARKED BY [***], HAS BEEN
               EXCLUDED FROM THIS EXHIBIT BECAUSE (I) IT IS NOT MATERIAL AND
@@ -165,22 +161,22 @@ export function DocumentEditor() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-[2.2%]">
-          <p className="font-sans text-xs leading-none font-semibold sm:text-sm">
+        <div className="flex flex-col gap-2">
+          <p className="font-sans text-sm leading-none font-semibold">
             MASTER SERVICES AND LICENSE AGREEMENT
           </p>
-          <p className="font-sans text-[9px] leading-snug font-medium text-zinc-400/40 sm:text-[10px]">
+          <p className="font-sans text-[10px] leading-snug font-medium text-zinc-400/40">
             {
               'THIS MASTER SERVICES AND LICENSE AGREEMENT (the "Agreement") is entered into between Customer, a Delaware corporation, whose principal address is San Francisco, CA ("Client"), and Company, a Delaware corporation, whose principal address is San Francisco, CA ("Company" and together with Client, each a "Party" and together the "Parties").'
             }
           </p>
         </div>
 
-        <div className="flex flex-col gap-[2.2%]">
-          <p className="font-sans text-[10px] leading-none font-semibold sm:text-xs">
+        <div className="flex flex-col gap-2">
+          <p className="font-sans text-xs leading-none font-semibold">
             Background
           </p>
-          <div className="font-sans text-[9px] leading-snug font-medium text-zinc-400/40 sm:text-[10px]">
+          <div className="font-sans text-[10px] leading-snug font-medium text-zinc-400/40">
             <p className="mb-0">
               A. Company is in the business of providing Entertainment
               Services, each as further described herein; and
@@ -195,7 +191,7 @@ export function DocumentEditor() {
               Parties agree as follows:
             </p>
           </div>
-          <p className="font-sans text-[9px] leading-snug font-medium whitespace-pre-line text-zinc-400/40 sm:text-[10px]">
+          <p className="font-sans text-[10px] leading-snug font-medium whitespace-pre-line text-zinc-400/40">
             Agreement. This Agreement consists of this cover page and the
             following:
             {"\n\n"}
@@ -207,7 +203,7 @@ export function DocumentEditor() {
             {"      f.        Schedule F - Company Characters\n"}
             {"      g.       Schedule G - Client Products"}
           </p>
-          <p className="font-sans text-[9px] leading-snug font-medium text-zinc-400/40 sm:text-[10px]">
+          <p className="font-sans text-[10px] leading-snug font-medium text-zinc-400/40">
             {
               'IN WITNESS WHEREOF, the Parties hereto have executed this Agreement as of the last date signed below (the "Effective Date"):'
             }
