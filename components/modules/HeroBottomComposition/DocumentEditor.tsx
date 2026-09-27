@@ -130,8 +130,8 @@ export function DocumentEditor() {
 
       <Toolbar />
 
-      <div className="flex w-full flex-col gap-4 text-zinc-300 sm:gap-8">
-        <div className="flex flex-col gap-2">
+      <div className="flex w-full flex-col gap-3 text-zinc-300 sm:gap-5">
+        <div className="flex flex-col gap-1.5">
           <p className="font-sans text-[10px] leading-none font-semibold sm:text-xs">
             Exhibit 10.20
           </p>
@@ -151,22 +151,22 @@ export function DocumentEditor() {
           </div>
         </div>
 
-        <div className="hidden flex-col gap-2 sm:flex">
-          <p className="font-sans text-sm leading-none font-semibold">
+        <div className="flex flex-col gap-1.5">
+          <p className="font-sans text-xs leading-none font-semibold sm:text-sm">
             MASTER SERVICES AND LICENSE AGREEMENT
           </p>
-          <p className="font-sans text-[10px] leading-snug font-medium text-zinc-400/40">
+          <p className="font-sans text-[9px] leading-snug font-medium text-zinc-400/40 sm:text-[10px]">
             {
               'THIS MASTER SERVICES AND LICENSE AGREEMENT (the "Agreement") is entered into between Customer, a Delaware corporation, whose principal address is San Francisco, CA ("Client"), and Company, a Delaware corporation, whose principal address is San Francisco, CA ("Company" and together with Client, each a "Party" and together the "Parties").'
             }
           </p>
         </div>
 
-        <div className="hidden flex-col gap-2 sm:flex">
-          <p className="font-sans text-xs leading-none font-semibold">
+        <div className="flex flex-col gap-1.5">
+          <p className="font-sans text-[10px] leading-none font-semibold sm:text-xs">
             Background
           </p>
-          <div className="font-sans text-[10px] leading-snug font-medium text-zinc-400/40">
+          <div className="font-sans text-[9px] leading-snug font-medium text-zinc-400/40 sm:text-[10px]">
             <p className="mb-0">
               A. Company is in the business of providing Entertainment
               Services, each as further described herein; and
@@ -181,6 +181,23 @@ export function DocumentEditor() {
               Parties agree as follows:
             </p>
           </div>
+          <p className="font-sans text-[9px] leading-snug font-medium whitespace-pre-line text-zinc-400/40 sm:text-[10px]">
+            Agreement. This Agreement consists of this cover page and the
+            following:
+            {"\n\n"}
+            {"      a.       Schedule A - Program Terms\n"}
+            {"      b.       Schedule B - General Terms and Conditions\n"}
+            {"      c.       Schedule C - Definitions\n"}
+            {"      d.       Schedule D - IP License Fees\n"}
+            {"      e.       Schedule E - Advertising Services\n"}
+            {"      f.        Schedule F - Company Characters\n"}
+            {"      g.       Schedule G - Client Products"}
+          </p>
+          <p className="font-sans text-[9px] leading-snug font-medium text-zinc-400/40 sm:text-[10px]">
+            {
+              'IN WITNESS WHEREOF, the Parties hereto have executed this Agreement as of the last date signed below (the "Effective Date"):'
+            }
+          </p>
         </div>
       </div>
     </div>
