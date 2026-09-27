@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { HeroBottomComposition } from "@/components/modules/HeroBottomComposition";
 import glowBlob from "@/public/hero-v2/glow-blob.png";
 import logosFlat from "@/public/hero-v2/logos-strip.png";
-import heroImage from "@/public/hero/hero-image.png";
 import mobileImage from "@/public/hero/mobile-image.png";
 
 // section_hero (v2 test) — visual redesign referencing Figma node 92:8455,
@@ -72,24 +72,15 @@ export function HeroV2() {
         </div>
       </div>
 
-      {/* Tilted product shot for depth -- rotate + skew approximates the
-          reference's 3D-perspective card stack using the existing flat
-          collage asset (individual per-card assets aren't available at
-          usable resolution from the reference mockup). */}
+      {/* Product shot -- fully coded (no raster image), see
+          components/modules/HeroBottomComposition for the per-panel Figma
+          source mapping. */}
       <FadeIn
         immediate
         index={2}
-        className="tablet:block tablet:h-[400px] desktop:mt-[-40px] desktop:h-[600px] desktop:w-[calc(100%+400px)] relative mt-10 hidden w-[calc(100%+240px)] shrink-0"
+        className="tablet:block desktop:mt-[-40px] desktop:w-[calc(100%+400px)] relative mt-10 hidden w-[calc(100%+240px)] max-w-[1440px] shrink-0"
       >
-        <div className="relative h-full w-full origin-center -rotate-6 skew-x-6">
-          <Image
-            src={heroImage}
-            alt=""
-            fill
-            className="pointer-events-none object-cover opacity-90"
-            sizes="100vw"
-          />
-        </div>
+        <HeroBottomComposition className="pointer-events-none" />
       </FadeIn>
 
       {/* Mobile: same static shot as the current Hero, no tilt (a 3D
