@@ -24,15 +24,23 @@ import { YourDocuments } from "./YourDocuments";
 // panel files).
 //
 // The three overlay panels (Your Documents, Contract Review Terms,
-// Decision Tree & Memo) are positioned with percentage-based inset/
-// transform offsets relative to the document editor underneath them --
-// not fixed pixel coordinates -- so they scale naturally with the
-// container's real rendered width at every breakpoint instead of relying
-// on a JS/canvas scale hack. Below the `sm` breakpoint the overlap layout
-// gets cramped (four panels is a lot to overlap meaningfully under
-// ~400px), so panels stack in normal document flow instead -- not
-// Figma-spec'd (Figma has no tablet/mobile variant for this composition,
-// confirmed with the user), a best-practice responsive fallback.
+// Decision Tree & Memo) sit inside one shared relative wrapper sized to
+// the Figma frame's own aspect ratio (1356x674), positioned with
+// percentage-based inset/width offsets read directly off that frame's
+// layer geometry -- not fixed pixel coordinates, and not each panel
+// positioned relative to a different ancestor -- so every offset is
+// measured against the same reference frame and the whole stack scales
+// together, in the same proportions as Figma, at any container width.
+// Percentages (left/top/width as % of 1356x674):
+//   Document Editor:      left 25.7%, top 3.7%,  width 56.9%
+//   Your Documents:       left 5.5%,  top 16.3%, width 28.0%
+//   Contract Review Terms: left 5.5%,  top 54.2%, width 28.0%
+//   Decision Tree & Memo:  left 58.1%, top 22.4%, width 36.4%
+// Below the `sm` breakpoint the overlap layout gets cramped (four panels
+// is a lot to overlap meaningfully under ~400px), so panels stack in
+// normal document flow instead -- not Figma-spec'd (Figma has no tablet/
+// mobile variant for this composition, confirmed with the user), a
+// best-practice responsive fallback.
 export function HeroBottomComposition({
   className = "",
 }: {
@@ -48,22 +56,26 @@ export function HeroBottomComposition({
         <DecisionTreeMemo />
       </div>
 
-      {/* sm and up: the Figma-spec'd overlap, using percentage offsets
-          (not fixed px) so it scales with the container at every width. */}
-      <div className="relative hidden w-full sm:block">
-        <div className="w-[60%] min-w-[280px]">
+      {/* sm and up: one shared reference frame (aspect-ratio matches the
+          Figma canvas) so every panel's percentage offset is measured
+          against the same box. */}
+      <div
+        className="relative hidden w-full sm:block"
+        style={{ aspectRatio: "1356 / 674" }}
+      >
+        <div className="absolute top-[3.7%] left-[25.7%] w-[56.9%] min-w-[260px]">
           <DocumentEditor />
         </div>
 
-        <div className="absolute top-[12%] left-0 w-[45%] min-w-[220px]">
+        <div className="absolute top-[16.3%] left-[5.5%] w-[28%] min-w-[220px]">
           <YourDocuments />
         </div>
 
-        <div className="absolute top-[48%] left-[3%] w-[45%] min-w-[220px]">
+        <div className="absolute top-[54.2%] left-[5.5%] w-[28%] min-w-[220px]">
           <ContractReviewTerms />
         </div>
 
-        <div className="absolute top-[20%] right-0 w-[42%] min-w-[260px]">
+        <div className="absolute top-[22.4%] left-[58.1%] w-[36.4%] min-w-[260px]">
           <DecisionTreeMemo />
         </div>
       </div>

@@ -69,33 +69,36 @@ export function DecisionTreeMemo({ className = "" }: { className?: string }) {
           />
         </div>
 
-        {/* Branch connector: a single top border spanning both columns,
-            with "No"/"Yes" pills sitting on it -- a plain CSS
-            approximation of Figma's routed connector lines. */}
-        <div className="relative flex w-full">
-          <div className="w-1/2" />
-          <div className="flex w-1/2 justify-center border-t border-[#9cbcff] pt-2">
+        {/* Branch connector: one shared horizontal line spanning both
+            columns, with "No" and "Yes" pills sitting on top of it at
+            each column's center -- both branches now visibly connect
+            the top node to the row below, instead of "No" floating
+            disconnected (the previous bug: only the right/Yes side had
+            a border-top at all). */}
+        <div className="relative flex w-full border-t border-[#9cbcff]">
+          <div className="flex w-1/2 justify-center">
+            <span className="absolute top-[-8px] rounded-full border border-[#888] bg-[#40434a] px-1.5 py-0.5 font-sans text-[7px] leading-none font-medium whitespace-nowrap text-zinc-400">
+              No
+            </span>
+          </div>
+          <div className="flex w-1/2 justify-center">
             <span className="absolute top-[-8px] rounded-full bg-[#9cbcff] px-1.5 py-0.5 font-sans text-[7px] leading-none font-medium whitespace-nowrap text-neutral-800">
               Yes
             </span>
           </div>
         </div>
 
-        {/* Row 2: Control (gray) + Transaction Type (blue), side by
-            side -- Transaction Type is taller to hold its numbered
+        {/* Row 2: Control (gray, "No" branch) + Transaction Type (blue,
+            "Yes" branch), side by side directly under their respective
+            pill -- Transaction Type is taller to hold its numbered
             list. */}
-        <div className="flex w-full items-start gap-2">
-          <div className="flex w-1/2 flex-col items-end pt-2">
-            <span className="mb-[-8px] rounded-full border border-[#888] bg-[#40434a] px-1.5 py-0.5 font-sans text-[7px] leading-none font-medium whitespace-nowrap text-zinc-400">
-              No
-            </span>
-            <DecisionNode
-              variant="gray"
-              label="Control"
-              className="w-full border-t"
-              body="Has the Acquiror  acquired control of another entity or set of assets?"
-            />
-          </div>
+        <div className="flex w-full items-start gap-2 pt-2">
+          <DecisionNode
+            variant="gray"
+            label="Control"
+            className="w-1/2"
+            body="Has the Acquiror  acquired control of another entity or set of assets?"
+          />
           <DecisionNode
             variant="blue"
             label="Transaction Type"
