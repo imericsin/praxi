@@ -1,11 +1,8 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { HeroBottomComposition } from "@/components/modules/HeroBottomComposition";
+import { TrustedByLogos } from "@/components/modules/HeroBottomComposition/TrustedByLogos";
 import glowBlob from "@/public/hero-v2/glow-blob.png";
-import logo1 from "@/public/hero/logos/logo-1.png";
-import logo2 from "@/public/hero/logos/logo-2.png";
-import logo3 from "@/public/hero/logos/logo-3.png";
-import logo4 from "@/public/hero/logos/logo-4.png";
 import mobileImage from "@/public/hero/mobile-image.png";
 
 // section_hero (v2) — Figma node 146:11630 "Hero (New)", breakpoints
@@ -19,34 +16,16 @@ import mobileImage from "@/public/hero/mobile-image.png";
 // subhead/CTA) -> content (Illustration + logos), a plain vertical flex
 // with gap, not the absolute-overlap layout the old (v1) hero used.
 //
-// Three things below are NOT in the Figma file -- confirmed with the user
-// these are code-only additions Figma can't express or that Figma layout
-// export can't do a scale transform for:
-//   1. The illustration fades to the section background at its own
-//      bottom edge (a mask-image gradient on the illustration itself,
-//      not a separate overlay div spanning the full section).
-//   2. The logos row is pulled up with a negative margin so it sits over
-//      the illustration's faded-out bottom rather than below it.
-//   3. On tablet, the logo grid doesn't fit at content/max-width (984px)
-//      without wrapping/clipping awkwardly -- it scrolls horizontally
-//      instead, with an edge mask-fade, matching this project's existing
-//      horizontal-scroll pattern (CaseStudies.tsx's mobile card row).
+// HeroBottomComposition and TrustedByLogos are real, normally-flowing
+// components (flexbox, proportional sizing) that scale down naturally at
+// any width -- not a fixed-canvas illustration scaled with a CSS
+// transform (an earlier pass at this got that wrong; see
+// HeroBottomComposition/index.tsx for why).
 //
-// The illustration (HeroBottomComposition) fills to its container's width
-// and scales its content down to fit, but never scales UP past its own
-// natural 1356x674 size -- also a code-only behavior (Figma has one fixed
-// frame per breakpoint, not a fluid scale-to-fit-then-cap rule).
-const logos = [
-  { image: logo1, alt: "", aspect: "aspect-[1000/377]" },
-  { image: logo2, alt: "", aspect: "aspect-[91.629/40]" },
-  { image: logo3, alt: "", aspect: "aspect-[800/201]" },
-  { image: logo4, alt: "", aspect: "aspect-[717/164]" },
-  { image: logo1, alt: "", aspect: "aspect-[1000/377]" },
-  { image: logo2, alt: "", aspect: "aspect-[91.629/40]" },
-  { image: logo3, alt: "", aspect: "aspect-[800/201]" },
-  { image: logo4, alt: "", aspect: "aspect-[717/164]" },
-];
-
+// No max-w-section-max-w (1200px) on the illustration+logos wrapper --
+// per Figma, the illustration bleeds wider than the 1200px copy column,
+// up to its own natural width, constrained only by the section's own
+// margin-x, not the content column.
 export function HeroV2() {
   return (
     <section
@@ -98,43 +77,20 @@ export function HeroV2() {
           static product shot below and the separate LogoStripMobile
           section, same split as the rest of this file's breakpoint
           handling. */}
-      <div className="max-w-section-max-w tablet:flex desktop:flex relative z-10 hidden w-full flex-col items-center">
-        <FadeIn
-          immediate
-          index={2}
-          className="relative w-full shrink-0"
-        >
-          <HeroBottomComposition
-            className="pointer-events-none"
-            fadeBottom
-          />
+      <div className="tablet:flex desktop:flex relative z-10 hidden w-full flex-col items-center gap-8">
+        <FadeIn immediate index={2} className="relative w-full shrink-0">
+          <HeroBottomComposition />
         </FadeIn>
 
         <FadeIn
           immediate
           index={3}
-          className="max-w-section-max-w tablet:-mt-6 desktop:-mt-8 relative z-10 flex w-full flex-col items-center gap-8"
+          className="max-w-section-max-w relative z-10 flex w-full flex-col items-center gap-8"
         >
           <p className="w-full text-center font-sans text-xs leading-none font-medium text-[#9ca3af]">
             Trusted by 100+ Leading Businesses
           </p>
-
-          {/* Tablet's own scroll+edge-fade treatment for this row is
-              deferred -- reverted to the same evenly-distributed layout
-              as desktop for now (clips at 984px until revisited). */}
-          <div className="flex w-full items-center justify-between gap-6">
-            {logos.map((logo, i) => (
-              <div key={i} className={`relative h-6 w-auto shrink-0 ${logo.aspect}`}>
-                <Image
-                  src={logo.image}
-                  alt={logo.alt}
-                  fill
-                  className="object-contain mix-blend-screen"
-                  sizes="150px"
-                />
-              </div>
-            ))}
-          </div>
+          <TrustedByLogos className="max-w-[1200px]" />
         </FadeIn>
       </div>
 
