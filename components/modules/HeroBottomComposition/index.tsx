@@ -234,7 +234,7 @@ function ConsolePanel({
 }) {
   return (
     <div
-      className="absolute flex flex-col gap-[15px] overflow-hidden rounded-[9px] border border-white/[0.07] bg-neutral-500/20 px-[15px] py-[21px] shadow-[1px_11px_24px_0_rgba(0,0,0,0.1),6px_44px_44px_0_rgba(0,0,0,0.09),13px_99px_60px_0_rgba(0,0,0,0.05)] backdrop-blur-[13px]"
+      className="absolute flex flex-col gap-[15px] overflow-hidden rounded-[9px] border border-white/[0.07] bg-neutral-500/20 px-[15px] py-[21px] shadow-[1px_11px_24px_0_rgba(0,0,0,0.1),6px_44px_44px_0_rgba(0,0,0,0.09),13px_99px_60px_0_rgba(0,0,0,0.05)] backdrop-blur-[40px]"
       style={{ top, left, width, height }}
     >
       <div className="flex w-full items-center justify-between px-[6px]">
@@ -482,15 +482,29 @@ function DecisionTreeMemo() {
 
 export function HeroBottomComposition({
   className = "",
+  fadeBottom = false,
 }: {
   className?: string;
+  /** Fades the composition to transparent at its own bottom edge (a
+   * mask-image gradient) instead of rendering opaque all the way down --
+   * for use where the parent needs the section background to show
+   * through underneath it (e.g. HeroV2 pulling the logo row up over it).
+   * Not a Figma-sourced value; Figma has no equivalent of a mask-image
+   * gradient on this layer. */
+  fadeBottom?: boolean;
 }) {
   return (
     <div
-      className={`relative w-full overflow-hidden bg-black ${className}`}
+      className={`relative mx-auto w-full overflow-hidden ${className}`}
       style={{
         aspectRatio: `${CANVAS_WIDTH} / ${CANVAS_HEIGHT}`,
+        maxWidth: CANVAS_WIDTH,
         containerType: "inline-size",
+        ...(fadeBottom && {
+          maskImage: "linear-gradient(to bottom, black 88%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, black 88%, transparent 100%)",
+        }),
       }}
       aria-hidden
     >
@@ -499,7 +513,7 @@ export function HeroBottomComposition({
         style={{
           width: CANVAS_WIDTH,
           height: CANVAS_HEIGHT,
-          transform: `scale(calc(100cqw / ${CANVAS_WIDTH}))`,
+          transform: `scale(min(1, calc(100cqw / ${CANVAS_WIDTH})))`,
         }}
       >
         <DocumentEditor />

@@ -2,40 +2,61 @@ import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { HeroBottomComposition } from "@/components/modules/HeroBottomComposition";
 import glowBlob from "@/public/hero-v2/glow-blob.png";
-import logosFlat from "@/public/hero-v2/logos-strip.png";
+import logo1 from "@/public/hero/logos/logo-1.png";
+import logo2 from "@/public/hero/logos/logo-2.png";
+import logo3 from "@/public/hero/logos/logo-3.png";
+import logo4 from "@/public/hero/logos/logo-4.png";
 import mobileImage from "@/public/hero/mobile-image.png";
 
-// section_hero (v2 test) — visual redesign referencing Figma node 92:8455,
-// a desktop-only presentation mockup (no tablet/mobile variant exists in
-// the file, confirmed with the user). That node is a hand-placed static
-// composition -- individual tilted "console" cards with bespoke mini-app
-// content baked in as one-off absolute-positioned markup, not a reusable
-// component. Rather than hand-porting every micro-element pixel-for-pixel,
-// this reproduces the essential visual language: a rotated/skewed product
-// shot for depth, a blurred color-glow backdrop, a pill-shaped CTA, and a
-// flattened real-logo strip -- reusing this project's existing hero-image
-// asset instead of recreating the reference's bespoke inner card UI.
+// section_hero (v2) — Figma node 146:11630 "Hero (New)", breakpoints
+// 146:11709 (Desktop) / 146:12005 (Desktop@1024/Tablet) / 146:11679 +
+// 146:11691 (Mobile — the mobile frame itself is empty; logos live in a
+// separate "Section Logos (Only Mobile)" frame, matching this project's
+// existing LogoStripMobile pattern of a dedicated mobile-only section
+// rather than a responsive variant of this one).
 //
-// This is a parallel component (not a replacement for Hero.tsx) so the
-// current Hero stays easy to roll back to -- swap which one app/page.tsx
-// imports to switch.
+// Structure mirrors Figma almost exactly: section -> Copy (headline/
+// subhead/CTA) -> content (Illustration + logos), a plain vertical flex
+// with gap, not the absolute-overlap layout the old (v1) hero used.
 //
-// Font: reference uses "Inter Display Medium" at 40px. Inter Display
-// isn't loaded in this project (only Inter + Inter Tight) -- falls back
-// to font-display-large (Inter Tight) rather than silently approximating
-// with a different loaded font; flagged for a follow-up if this direction
-// is kept.
+// Three things below are NOT in the Figma file -- confirmed with the user
+// these are code-only additions Figma can't express or that Figma layout
+// export can't do a scale transform for:
+//   1. The illustration fades to the section background at its own
+//      bottom edge (a mask-image gradient on the illustration itself,
+//      not a separate overlay div spanning the full section).
+//   2. The logos row is pulled up with a negative margin so it sits over
+//      the illustration's faded-out bottom rather than below it.
+//   3. On tablet, the logo grid doesn't fit at content/max-width (984px)
+//      without wrapping/clipping awkwardly -- it scrolls horizontally
+//      instead, with an edge mask-fade, matching this project's existing
+//      horizontal-scroll pattern (CaseStudies.tsx's mobile card row).
+//
+// The illustration (HeroBottomComposition) fills to its container's width
+// and scales its content down to fit, but never scales UP past its own
+// natural 1356x674 size -- also a code-only behavior (Figma has one fixed
+// frame per breakpoint, not a fluid scale-to-fit-then-cap rule).
+const logos = [
+  { image: logo1, alt: "", aspect: "aspect-[1000/377]" },
+  { image: logo2, alt: "", aspect: "aspect-[91.629/40]" },
+  { image: logo3, alt: "", aspect: "aspect-[800/201]" },
+  { image: logo4, alt: "", aspect: "aspect-[717/164]" },
+  { image: logo1, alt: "", aspect: "aspect-[1000/377]" },
+  { image: logo2, alt: "", aspect: "aspect-[91.629/40]" },
+  { image: logo3, alt: "", aspect: "aspect-[800/201]" },
+  { image: logo4, alt: "", aspect: "aspect-[717/164]" },
+];
+
 export function HeroV2() {
   return (
     <section
       id="schedule-demo"
-      data-figma-node="92:8455"
-      className="px-margin-x tablet:pt-24 desktop:h-[900px] desktop:pt-28 relative flex w-full flex-col items-center overflow-hidden bg-[#0c0a09] pt-20"
+      data-figma-node="146:11709"
+      className="px-margin-x tablet:gap-6 tablet:py-28 desktop:gap-6 desktop:py-28 relative flex w-full flex-col items-center gap-6 overflow-hidden bg-[#020202] py-20"
     >
-      {/* Blurred color-glow backdrop, rotated and screen-blended --
-          same technique as the current Hero's background, reusing that
-          asset would be flatter/dimmer than the reference; this uses the
-          brighter multi-color glow asset from the new design instead. */}
+      {/* Blurred color-glow backdrop -- no background color on this or
+          any ancestor between it and the section: it needs to show
+          through, not be painted over. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 flex scale-125 items-center justify-center overflow-hidden mix-blend-screen"
@@ -48,48 +69,80 @@ export function HeroV2() {
         />
       </div>
 
-      <div className="max-w-section-max-w relative z-10 flex w-full flex-col items-center gap-16">
-        <div className="flex w-full max-w-[391px] flex-col items-center gap-10">
+      <div className="max-w-section-max-w relative z-10 flex w-full flex-col items-center">
+        <div className="flex w-full max-w-[590px] flex-col items-center gap-6">
           <FadeIn
             immediate
             index={0}
-            className="flex w-full flex-col items-center gap-6"
+            className="flex w-full flex-col items-center gap-5"
           >
-            <h1 className="font-display-large tablet:text-[36px] desktop:text-[40px] w-full text-center text-[28px] leading-none font-medium text-balance text-white">
+            <h1 className="font-display-large tablet:text-[40px] desktop:text-[48px] w-full text-center text-[32px] leading-none font-medium text-balance text-white">
               Technical accounting,
               <br />
               reimagined.
             </h1>
-            <p className="w-full text-center text-base leading-[1.33] font-normal text-white/60">
+            <p className="w-full text-center text-lg leading-7 font-normal text-white/60">
               Research, contract analysis, audit-ready checklists, and memos —
               all in one platform.
             </p>
           </FadeIn>
           <FadeIn immediate index={1}>
-            <button className="flex items-center justify-center rounded-full bg-white px-[18px] py-3 font-sans text-[13px] leading-[1.33] font-medium text-black">
+            <button className="flex items-center justify-center rounded-md bg-white px-4 py-3 font-sans text-xs leading-none font-medium text-black">
               Schedule Demo →
             </button>
           </FadeIn>
         </div>
       </div>
 
-      {/* Product shot -- fully coded (no raster image), see
-          components/modules/HeroBottomComposition for the per-panel Figma
-          source mapping. */}
-      <FadeIn
-        immediate
-        index={2}
-        className="tablet:block desktop:mt-[-40px] desktop:w-[calc(100%+400px)] relative mt-10 hidden w-[calc(100%+240px)] max-w-[1440px] shrink-0"
-      >
-        <HeroBottomComposition className="pointer-events-none" />
-      </FadeIn>
+      {/* Illustration + logos. Desktop/tablet only -- mobile uses a
+          static product shot below and the separate LogoStripMobile
+          section, same split as the rest of this file's breakpoint
+          handling. */}
+      <div className="max-w-section-max-w tablet:flex desktop:flex relative z-10 hidden w-full flex-col items-center">
+        <FadeIn
+          immediate
+          index={2}
+          className="relative w-full shrink-0"
+        >
+          <HeroBottomComposition
+            className="pointer-events-none"
+            fadeBottom
+          />
+        </FadeIn>
 
-      {/* Mobile: same static shot as the current Hero, no tilt (a 3D
-          transform on a narrow viewport just clips awkwardly). */}
+        <FadeIn
+          immediate
+          index={3}
+          className="max-w-section-max-w tablet:-mt-6 desktop:-mt-8 relative z-10 flex w-full flex-col items-center gap-8"
+        >
+          <p className="w-full text-center font-sans text-xs leading-none font-medium text-[#9ca3af]">
+            Trusted by 100+ Leading Businesses
+          </p>
+
+          {/* Tablet's own scroll+edge-fade treatment for this row is
+              deferred -- reverted to the same evenly-distributed layout
+              as desktop for now (clips at 984px until revisited). */}
+          <div className="flex w-full items-center justify-between gap-6">
+            {logos.map((logo, i) => (
+              <div key={i} className={`relative h-6 w-auto shrink-0 ${logo.aspect}`}>
+                <Image
+                  src={logo.image}
+                  alt={logo.alt}
+                  fill
+                  className="object-contain mix-blend-screen"
+                  sizes="150px"
+                />
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+      </div>
+
+      {/* Mobile: static product shot, no tilt. */}
       <FadeIn
         immediate
         index={2}
-        className="-mx-margin-x tablet:hidden relative mt-10 aspect-[375/291.7] w-[calc(100%+2*20px)] shrink-0"
+        className="-mx-margin-x tablet:hidden relative z-10 mt-4 aspect-[375/291.7] w-[calc(100%+2*20px)] shrink-0"
       >
         <Image
           src={mobileImage}
@@ -98,31 +151,6 @@ export function HeroV2() {
           className="object-cover"
           sizes="100vw"
         />
-      </FadeIn>
-
-      {/* Fade to the section's own background at the bottom. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0c0a09] from-10% to-transparent to-100%"
-      />
-
-      {/* Flattened "Trusted by" logo strip -- a single composited image
-          from the reference (real client logos, not this project's
-          placeholder set), screen-blended against the dark background. */}
-      <FadeIn
-        immediate
-        index={3}
-        className="max-w-section-max-w tablet:block desktop:bottom-16 absolute bottom-10 hidden w-full"
-      >
-        <div className="relative h-8 w-full">
-          <Image
-            src={logosFlat}
-            alt="Trusted by Bird & Bird, Cleary Gottlieb, White & Case, Linklaters, Deloitte, Palo Alto Networks, Goodwin, Allen & Overy"
-            fill
-            className="object-contain object-left mix-blend-screen"
-            sizes="1200px"
-          />
-        </div>
       </FadeIn>
     </section>
   );
