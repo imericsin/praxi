@@ -21,11 +21,14 @@ import {
 
 // HeroBottomComposition -- a fully coded (no raster image) reproduction of
 // the four-panel product mockup used at the bottom of the Hero, referencing
-// Figma node 69:4360 (root) and its four labelled child consoles:
-//   - Non-Standard MSLA Memo document editor: node 145:10371
-//   - Your Documents panel:                   node 145:10475
-//   - Contract Review Terms panel:             node 145:10463
-//   - Decision Tree & Memo panel:               node 145:10490
+// Figma node 145:11060 ("Illustration" -- a corrected-proportions revision
+// of the original node 69:4360, per explicit user feedback that the first
+// pass had sizing/proportions "all misrepresented") and its four labelled
+// child consoles:
+//   - Non-Standard MSLA Memo document editor: node 145:11062
+//   - Your Documents panel:                   node 145:11166
+//   - Contract Review Terms panel:             node 145:11154
+//   - Decision Tree & Memo panel:               node 145:11181
 //
 // There is no design system backing this composition (confirmed with the
 // user) -- every value below is read directly off the Figma layer geometry
@@ -37,61 +40,62 @@ import {
 // panel/card layout geometry itself (widths, absolute offsets, the decision
 // tree diagram) is unmapped and hand-read from the Figma frame.
 //
-// Structure: a fixed-size canvas (2335x1160, the Figma frame's natural size)
-// scaled down responsively with a CSS transform, so every child's absolute
-// px position/size stays geometrically exact at any viewport width instead
-// of being re-flowed per breakpoint. Figma provides no tablet/mobile variant
-// for this composition (confirmed with the user for the parent Hero image),
-// so uniform scaling is the faithful behavior here, not a compromise.
+// Structure: a fixed-size canvas (1356x674, this revision's natural frame
+// size per get_screenshot) scaled down responsively with a CSS transform,
+// so every child's absolute px position/size stays geometrically exact at
+// any viewport width instead of being re-flowed per breakpoint. Figma
+// provides no tablet/mobile variant for this composition (confirmed with
+// the user for the parent Hero image), so uniform scaling is the faithful
+// behavior here, not a compromise.
 
-const CANVAS_WIDTH = 2335;
-const CANVAS_HEIGHT = 1160;
+const CANVAS_WIDTH = 1356;
+const CANVAS_HEIGHT = 674;
 
 function Toolbar() {
   return (
-    <div className="absolute top-[73px] left-[21px] flex h-[47px] w-[1268px] items-center justify-between rounded-[16px] border border-neutral-600/100 bg-neutral-700/40 px-[21px] shadow-[16px_16px_31px_0_rgba(0,0,0,0.05)]">
-      <div className="flex w-[668px] items-center gap-[18px]">
-        <div className="flex items-center gap-2 rounded-xl">
-          <PencilIcon className="size-[18px] text-white" />
-          <span className="font-sans text-[16px] leading-none font-medium whitespace-nowrap text-white">
+    <div className="absolute top-[50px] left-[18px] flex h-[27px] w-[736px] items-center justify-between rounded-[9px] border border-neutral-600/100 bg-neutral-700/40 px-[12px] shadow-[9px_9px_18px_0_rgba(0,0,0,0.05)]">
+      <div className="flex w-[388px] items-center gap-[11px]">
+        <div className="flex items-center gap-1 rounded-xl">
+          <PencilIcon className="size-[11px] text-white" />
+          <span className="font-sans text-[9px] leading-none font-medium whitespace-nowrap text-white">
             Editing
           </span>
         </div>
-        <div className="h-5 w-px shrink-0 bg-white/20" />
-        <UndoIcon className="size-[18px] text-white" />
-        <RedoIcon className="size-[18px] rotate-180 text-white" />
-        <div className="h-5 w-px shrink-0 bg-white/20" />
-        <div className="flex items-center gap-2">
-          <span className="font-sans text-[16px] leading-none font-medium whitespace-nowrap text-white">
+        <div className="h-3 w-px shrink-0 bg-white/20" />
+        <UndoIcon className="size-[11px] text-white" />
+        <RedoIcon className="size-[11px] rotate-180 text-white" />
+        <div className="h-3 w-px shrink-0 bg-white/20" />
+        <div className="flex items-center gap-1">
+          <span className="font-sans text-[9px] leading-none font-medium whitespace-nowrap text-white">
             Normal text
           </span>
-          <ChevronDownIcon className="size-[18px] text-white/50" />
+          <ChevronDownIcon className="size-[11px] text-white/50" />
         </div>
-        <div className="flex items-center gap-2">
-          <span className="font-sans text-[16px] leading-none font-medium whitespace-nowrap text-white">
+        <div className="flex items-center gap-1">
+          <span className="font-sans text-[9px] leading-none font-medium whitespace-nowrap text-white">
             Arial
           </span>
-          <ChevronDownIcon className="size-[18px] text-white/50" />
+          <ChevronDownIcon className="size-[11px] text-white/50" />
         </div>
-        <div className="flex items-center gap-[10px] rounded-md border border-neutral-500 px-[10px] py-2">
-          <MinusIcon className="size-[18px] text-white/40" />
-          <span className="font-sans text-[16px] leading-none font-medium whitespace-nowrap text-white">
+        <div className="flex items-center gap-[6px] rounded-md border border-neutral-500 px-[6px] py-1">
+          <MinusIcon className="size-[11px] text-white/40" />
+          <span className="font-sans text-[9px] leading-none font-medium whitespace-nowrap text-white">
             12
           </span>
-          <PlusIcon className="size-[18px] text-white/40" />
+          <PlusIcon className="size-[11px] text-white/40" />
         </div>
-        <BoldIcon className="size-[18px] text-white" />
-        <ItalicIcon className="size-[18px] text-white" />
-        <UnderlineIcon className="size-[18px] text-white" />
-        <div className="flex items-center gap-1">
-          <TextColorIcon className="size-[18px] text-white" />
-          <ChevronDownIcon className="size-[18px] text-white/50" />
+        <BoldIcon className="size-[11px] text-white" />
+        <ItalicIcon className="size-[11px] text-white" />
+        <UnderlineIcon className="size-[11px] text-white" />
+        <div className="flex items-center gap-0.5">
+          <TextColorIcon className="size-[11px] text-white" />
+          <ChevronDownIcon className="size-[11px] text-white/50" />
         </div>
       </div>
-      <div className="flex items-center gap-[13px]">
-        <ResetIcon className="size-[18px] text-white" />
-        <SettingsIcon className="size-[18px] text-white" />
-        <DownloadIcon className="size-[18px] text-white" />
+      <div className="flex items-center gap-[8px]">
+        <ResetIcon className="size-[11px] text-white" />
+        <SettingsIcon className="size-[11px] text-white" />
+        <DownloadIcon className="size-[11px] text-white" />
       </div>
     </div>
   );
@@ -100,26 +104,26 @@ function Toolbar() {
 function DocumentEditor() {
   return (
     <div
-      className="absolute top-[56px] left-[609px] w-[1310px] overflow-hidden rounded-[13px] bg-neutral-800/50 shadow-[2px_20px_41px_0_rgba(0,0,0,0.1),10px_76px_76px_0_rgba(0,0,0,0.09),22px_170px_104px_0_rgba(0,0,0,0.05)]"
-      style={{ height: 1533 }}
+      className="absolute top-[25px] left-[348px] w-[772px] overflow-hidden rounded-[9px] bg-neutral-800/50 shadow-[1px_11px_24px_0_rgba(0,0,0,0.1),6px_44px_44px_0_rgba(0,0,0,0.09),13px_99px_60px_0_rgba(0,0,0,0.05)]"
+      style={{ height: 905 }}
     >
-      <div className="flex items-center gap-4 px-[13px] py-2">
-        <LogoMarkIcon className="size-[52px] shrink-0" />
-        <div className="flex items-center gap-1 font-sans text-[18px] leading-[26px] font-medium whitespace-nowrap text-white">
+      <div className="flex items-center gap-2 px-[8px] py-1">
+        <LogoMarkIcon className="size-[30px] shrink-0" />
+        <div className="flex items-center gap-1 font-sans text-[11px] leading-[15px] font-medium whitespace-nowrap text-white">
           <span className="opacity-40">Technical Accounting</span>
           <span className="opacity-40">/</span>
           <span className="font-semibold">Non-Standard MSLA Memo</span>
         </div>
       </div>
 
-      <div className="absolute top-[13px] left-[1033px] flex items-center gap-[5px]">
-        <div className="flex h-[42px] items-center gap-2 rounded-[13px] bg-neutral-700 px-[13px] py-2">
-          <SparkleIcon className="size-[18px] text-white" />
-          <span className="font-sans text-[16px] leading-none font-medium whitespace-nowrap text-white">
+      <div className="absolute top-[8px] left-[606px] flex items-center gap-[3px]">
+        <div className="flex h-[24px] items-center gap-1 rounded-[8px] bg-neutral-700 px-[8px] py-1">
+          <SparkleIcon className="size-[11px] text-white" />
+          <span className="font-sans text-[9px] leading-none font-medium whitespace-nowrap text-white">
             Advisor
           </span>
         </div>
-        <div className="flex h-[42px] items-center gap-2 rounded-[13px] border border-neutral-600 px-[13px] py-2 opacity-50">
+        <div className="flex h-[24px] items-center gap-1 rounded-[8px] border border-neutral-600 px-[8px] py-1 opacity-50">
           <svg
             viewBox="0 0 18.2958 18.2958"
             fill="none"
@@ -127,11 +131,11 @@ function DocumentEditor() {
             strokeWidth="1.30684"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="size-[18px] text-white"
+            className="size-[11px] text-white"
           >
             <path d="M16.7701 12.959C16.7701 13.3634 16.6095 13.7512 16.3236 14.0371C16.0376 14.323 15.6498 14.4837 15.2455 14.4837H5.20412C4.79979 14.4837 4.41205 14.6444 4.12619 14.9304L2.44755 16.609C2.37185 16.6847 2.27542 16.7362 2.17043 16.7571C2.06545 16.778 1.95663 16.7673 1.85774 16.7263C1.75885 16.6854 1.67432 16.616 1.61485 16.527C1.55537 16.438 1.52362 16.3334 1.52361 16.2263L1.52361 3.8111C1.52361 3.40674 1.68424 3.01894 1.97017 2.73301C2.2561 2.44708 2.6439 2.28645 3.04826 2.28645L15.2455 2.28645C15.6498 2.28645 16.0376 2.44708 16.3236 2.73301C16.6095 3.01894 16.7701 3.40674 16.7701 3.8111V12.959Z" />
           </svg>
-          <span className="font-sans text-[16px] leading-none font-medium whitespace-nowrap text-white">
+          <span className="font-sans text-[9px] leading-none font-medium whitespace-nowrap text-white">
             Comments
           </span>
         </div>
@@ -139,12 +143,12 @@ function DocumentEditor() {
 
       <Toolbar />
 
-      <div className="absolute top-[197px] left-[131px] flex w-[1047px] flex-col gap-[91px] text-zinc-300">
-        <div className="flex flex-col gap-[34px]">
-          <p className="font-sans text-[21px] leading-none font-semibold">
+      <div className="absolute top-[122px] left-[82px] flex w-[608px] flex-col gap-[53px] text-zinc-300">
+        <div className="flex flex-col gap-[20px]">
+          <p className="font-sans text-[12px] leading-none font-semibold">
             Exhibit 10.20
           </p>
-          <div className="font-sans text-[18px] leading-[26px] font-medium text-zinc-400/40">
+          <div className="font-sans text-[11px] leading-[15px] font-medium text-zinc-400/40">
             <p className="mb-0">
               CERTAIN CONFIDENTIAL INFORMATION, MARKED BY [***], HAS BEEN
               EXCLUDED FROM THIS EXHIBIT BECAUSE (I) IT IS NOT MATERIAL AND
@@ -160,22 +164,22 @@ function DocumentEditor() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-[34px]">
-          <p className="font-sans text-[27px] leading-none font-semibold">
+        <div className="flex flex-col gap-[20px]">
+          <p className="font-sans text-[16px] leading-none font-semibold">
             MASTER SERVICES AND LICENSE AGREEMENT
           </p>
-          <p className="font-sans text-[18px] leading-[26px] font-medium text-zinc-400/40">
+          <p className="font-sans text-[11px] leading-[15px] font-medium text-zinc-400/40">
             {
               'THIS MASTER SERVICES AND LICENSE AGREEMENT (the "Agreement") is entered into between Customer, a Delaware corporation, whose principal address is San Francisco, CA ("Client"), and Company, a Delaware corporation, whose principal address is San Francisco, CA ("Company" and together with Client, each a "Party" and together the "Parties").'
             }
           </p>
         </div>
 
-        <div className="flex flex-col gap-[34px]">
-          <p className="font-sans text-[21px] leading-none font-semibold">
+        <div className="flex flex-col gap-[20px]">
+          <p className="font-sans text-[12px] leading-none font-semibold">
             Background
           </p>
-          <div className="font-sans text-[18px] leading-[26px] font-medium text-zinc-400/40">
+          <div className="font-sans text-[11px] leading-[15px] font-medium text-zinc-400/40">
             <p className="mb-0">
               A. Company is in the business of providing Entertainment
               Services, each as further described herein; and
@@ -190,7 +194,7 @@ function DocumentEditor() {
               Parties agree as follows:
             </p>
           </div>
-          <p className="font-sans text-[18px] leading-[26px] font-medium whitespace-pre-wrap text-zinc-400/40">
+          <p className="font-sans text-[11px] leading-[15px] font-medium whitespace-pre-wrap text-zinc-400/40">
             Agreement. This Agreement consists of this cover page and the
             following:
             {"\n\n"}
@@ -202,7 +206,7 @@ function DocumentEditor() {
             {"      f.        Schedule F - Company Characters\n"}
             {"      g.       Schedule G - Client Products"}
           </p>
-          <p className="font-sans text-[18px] leading-[26px] font-medium text-zinc-400/40">
+          <p className="font-sans text-[11px] leading-[15px] font-medium text-zinc-400/40">
             {
               'IN WITNESS WHEREOF, the Parties hereto have executed this Agreement as of the last date signed below (the "Effective Date"):'
             }
@@ -230,14 +234,14 @@ function ConsolePanel({
 }) {
   return (
     <div
-      className="absolute flex flex-col gap-[26px] overflow-hidden rounded-[16px] border border-white/100 bg-neutral-500/20 px-[26px] py-[37px] shadow-[2px_20px_41px_0_rgba(0,0,0,0.1),10px_76px_76px_0_rgba(0,0,0,0.09),22px_170px_104px_0_rgba(0,0,0,0.05)] backdrop-blur-[22px]"
+      className="absolute flex flex-col gap-[15px] overflow-hidden rounded-[9px] border border-white/[0.07] bg-neutral-500/20 px-[15px] py-[21px] shadow-[1px_11px_24px_0_rgba(0,0,0,0.1),6px_44px_44px_0_rgba(0,0,0,0.09),13px_99px_60px_0_rgba(0,0,0,0.05)] backdrop-blur-[13px]"
       style={{ top, left, width, height }}
     >
-      <div className="flex w-full items-center justify-between px-[10px]">
-        <p className="font-sans text-[20px] leading-none font-medium whitespace-nowrap text-white">
+      <div className="flex w-full items-center justify-between px-[6px]">
+        <p className="font-sans text-[11px] leading-none font-medium whitespace-nowrap text-white">
           {title}
         </p>
-        <DocIcon className="size-[21px] text-white" />
+        <DocIcon className="size-[12px] text-white" />
       </div>
       {children}
     </div>
@@ -256,26 +260,26 @@ function ContractReviewTerms() {
   return (
     <ConsolePanel
       title="Contract Review Terms"
-      top={629}
-      left={129}
-      width={652}
+      top={365}
+      left={75}
+      width={379}
     >
-      <div className="flex w-full flex-col gap-[10px]">
+      <div className="flex w-full flex-col gap-[6px]">
         {rows.map((row) => (
           <div
             key={row.label}
-            className="flex w-[600px] items-center justify-between rounded-lg bg-white/10 p-[13px]"
+            className="flex w-[348px] items-center justify-between rounded-lg bg-white/10 p-[8px]"
             style={{ opacity: row.opacity }}
           >
-            <div className="flex items-center gap-[10px]">
-              <ExpandIcon className="size-[21px] text-white" />
-              <p className="font-sans text-[16px] leading-none font-medium whitespace-nowrap text-white">
+            <div className="flex items-center gap-[6px]">
+              <ExpandIcon className="size-[12px] text-white" />
+              <p className="font-sans text-[9px] leading-none font-medium whitespace-nowrap text-white">
                 {row.label}
               </p>
             </div>
-            <div className="flex items-center gap-[10px] opacity-50">
-              <SparkleIcon className="size-[21px] text-white" />
-              <ExpandIcon className="size-[21px] text-white" />
+            <div className="flex items-center gap-[6px] opacity-50">
+              <SparkleIcon className="size-[12px] text-white" />
+              <ExpandIcon className="size-[12px] text-white" />
               <svg
                 viewBox="0 0 20.9095 20.9095"
                 fill="none"
@@ -283,7 +287,7 @@ function ContractReviewTerms() {
                 strokeWidth="1.96027"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="size-[21px] text-white"
+                className="size-[12px] text-white"
               >
                 <path d="M11.0114 18.9681C11.1678 18.8382 11.2738 18.6577 11.3112 18.4579C11.6116 16.6715 12.4614 15.0232 13.7423 13.7423C15.0232 12.4614 16.6715 11.6116 18.4579 11.3112C18.6577 11.2738 18.8382 11.1678 18.9681 11.0114C19.098 10.855 19.1691 10.6581 19.1691 10.4548C19.1691 10.2514 19.098 10.0545 18.9681 9.89812C18.8382 9.74172 18.6577 9.63567 18.4579 9.59834C16.6715 9.2979 15.0232 8.44812 13.7423 7.16722C12.4614 5.88632 11.6116 4.23802 11.3112 2.45164C11.2738 2.25178 11.1678 2.07127 11.0114 1.94138C10.855 1.81148 10.6581 1.74037 10.4548 1.74037C10.2514 1.74037 10.0545 1.81148 9.89812 1.94138C9.74172 2.07127 9.63567 2.25178 9.59834 2.45164C9.2979 4.23802 8.44812 5.88632 7.16722 7.16722C5.88632 8.44812 4.23802 9.2979 2.45164 9.59834C2.25178 9.63567 2.07127 9.74172 1.94138 9.89812C1.81148 10.0545 1.74037 10.2514 1.74037 10.4548C1.74037 10.6581 1.81148 10.855 1.94138 11.0114C2.07127 11.1678 2.25178 11.2738 2.45164 11.3112C4.23802 11.6116 5.88632 12.4614 7.16722 13.7423C8.44812 15.0232 9.2979 16.6715 9.59834 18.4579C9.63567 18.6577 9.74172 18.8382 9.89812 18.9681C10.0545 19.098 10.2514 19.1691 10.4548 19.1691C10.6581 19.1691 10.855 19.098 11.0114 18.9681Z" />
               </svg>
@@ -307,23 +311,23 @@ function YourDocuments() {
   return (
     <ConsolePanel
       title="Your Documents"
-      top={190}
-      left={130}
-      width={652}
-      height={378}
+      top={110}
+      left={75}
+      width={379}
+      height={220}
     >
       <div className="flex w-full flex-col">
         {rows.map((row) => (
           <div
             key={row.label}
-            className="flex w-[600px] items-center gap-[13px] border-t border-white/15 py-[16px]"
+            className="flex w-[348px] items-center gap-[8px] border-t border-white/15 py-[9px]"
             style={{ opacity: row.opacity }}
           >
-            <SearchIcon className="size-[18px] shrink-0 text-white" />
-            <p className="flex-1 font-sans text-[16px] leading-none font-semibold whitespace-nowrap text-white">
+            <SearchIcon className="size-[11px] shrink-0 text-white" />
+            <p className="flex-1 font-sans text-[9px] leading-none font-semibold whitespace-nowrap text-white">
               {row.label}
             </p>
-            <p className="font-sans text-[16px] leading-none font-medium whitespace-nowrap text-white/60">
+            <p className="font-sans text-[9px] leading-none font-medium whitespace-nowrap text-white/60">
               Q4 2025
             </p>
           </div>
@@ -353,21 +357,21 @@ function DecisionNode({
   const isBlue = variant === "blue";
   return (
     <div
-      className={`absolute overflow-hidden rounded-[10px] border ${isBlue ? "border-[#9cbcff]" : "border-[#888]"}`}
+      className={`absolute overflow-hidden rounded-[6px] border ${isBlue ? "border-[#9cbcff]" : "border-[#888]"}`}
       style={{ top, left, width, height }}
     >
       <div
-        className={`absolute inset-x-0 top-0 flex h-[29px] items-center px-[11px] ${isBlue ? "bg-[#9cbcff]" : "bg-[#888]"}`}
+        className={`absolute inset-x-0 top-0 flex h-[17px] items-center px-[6px] ${isBlue ? "bg-[#9cbcff]" : "bg-[#888]"}`}
       >
         <p
-          className={`font-sans text-[16px] leading-none font-semibold whitespace-nowrap ${isBlue ? "text-black" : "text-white"}`}
+          className={`font-sans text-[9px] leading-none font-semibold whitespace-nowrap ${isBlue ? "text-black" : "text-white"}`}
         >
           {label}
         </p>
       </div>
       <div
-        className={`absolute top-[37px] left-[9px] font-sans text-[13px] leading-[18px] font-medium ${isBlue ? "text-[#9cbcff]" : "text-[#888]"}`}
-        style={{ width: width - 26 }}
+        className={`absolute top-[22px] left-[5px] font-sans text-[8px] leading-[11px] font-medium ${isBlue ? "text-[#9cbcff]" : "text-[#888]"}`}
+        style={{ width: width - 15 }}
       >
         {body}
       </div>
@@ -379,46 +383,46 @@ function DecisionTreeMemo() {
   return (
     <ConsolePanel
       title="Decision Tree & Memo"
-      top={259}
-      left={1357}
-      width={849}
-      height={633}
+      top={151}
+      left={788}
+      width={493}
+      height={368}
     >
-      <div className="relative h-[511px] w-[754px] rounded-[10px] border border-dashed border-[#9cbcff] bg-[#9cbcff]/10">
-        <p className="absolute top-[20px] left-[20px] font-sans text-[13px] leading-none font-medium whitespace-nowrap text-[#9cbcff]">
+      <div className="relative h-[297px] w-[438px] rounded-[6px] border border-dashed border-[#9cbcff] bg-[#9cbcff]/10">
+        <p className="absolute top-[11px] left-[11px] font-sans text-[8px] leading-none font-medium whitespace-nowrap text-[#9cbcff]">
           Primary Scope Assessment
         </p>
 
         <DecisionNode
           variant="blue"
           label="Control"
-          top={41}
-          left={376}
-          width={314}
-          height={89}
+          top={24}
+          left={218}
+          width={182}
+          height={52}
           body="Has the Acquiror  acquired control of another entity or set of assets?"
         />
 
         <DecisionNode
           variant="gray"
           label="Control"
-          top={216}
-          left={30}
-          width={289}
-          height={89}
+          top={126}
+          left={17}
+          width={168}
+          height={52}
           body="Has the Acquiror  acquired control of another entity or set of assets?"
         />
 
         <DecisionNode
           variant="blue"
           label="Transaction Type"
-          top={216}
-          left={376}
-          width={314}
-          height={256}
+          top={126}
+          left={218}
+          width={182}
+          height={149}
           body={
             <>
-              <p className="mb-0 leading-[18px]">
+              <p className="mb-0 leading-[11px]">
                 Do any of the following apply for BuyerCo–SellerCo Asset
                 Acquisition?
               </p>
@@ -429,7 +433,7 @@ function DecisionTreeMemo() {
                   "The Acquiree is a not-for-profit entity with special circumstances?",
                   "The transaction is solely the acquisition of financial assets/liabilities of a collateralized financing entity (CFE)?",
                 ].map((item) => (
-                  <li key={item} className="mb-0 ms-[20px] leading-[18px]">
+                  <li key={item} className="mb-0 ms-[11px] leading-[11px]">
                     {item}
                   </li>
                 ))}
@@ -441,18 +445,18 @@ function DecisionTreeMemo() {
         {/* Connector: Control (top) -> No -> Control (bottom-left) */}
         <svg
           className="absolute"
-          style={{ top: 130, left: 175, width: 357, height: 47 }}
-          viewBox="0 0 357.324 46.984"
+          style={{ top: 76, left: 102, width: 207, height: 27 }}
+          viewBox="0 0 207.498 27.283"
           fill="none"
         >
           <path
-            d="M356 1H175M175 1L175 46M175 46H2"
+            d="M206 1H102M102 1L102 26M102 26H1"
             stroke="#888888"
-            strokeWidth="1.3"
+            strokeWidth="1"
           />
         </svg>
-        <div className="absolute top-[153px] left-[333px] flex items-center rounded-full border border-[#888] bg-[#40434a] px-[10px] py-2">
-          <span className="font-sans text-[13px] leading-none font-medium whitespace-nowrap text-zinc-400">
+        <div className="absolute top-[89px] left-[193px] flex items-center rounded-full border border-[#888] bg-[#40434a] px-[6px] py-1">
+          <span className="font-sans text-[8px] leading-none font-medium whitespace-nowrap text-zinc-400">
             No
           </span>
         </div>
@@ -460,14 +464,14 @@ function DecisionTreeMemo() {
         {/* Connector: Control (top) -> Yes -> Transaction Type */}
         <svg
           className="absolute"
-          style={{ top: 130, left: 533, width: 1, height: 86 }}
-          viewBox="0 0 2 86.252"
+          style={{ top: 76, left: 310, width: 1, height: 50 }}
+          viewBox="0 0 1 50.086"
           fill="none"
         >
-          <path d="M1 0V86" stroke="#9cbcff" strokeWidth="1.3" />
+          <path d="M0.5 0V50" stroke="#9cbcff" strokeWidth="1" />
         </svg>
-        <div className="absolute top-[153px] left-[511px] flex items-center rounded-full bg-[#9cbcff] px-[10px] py-2">
-          <span className="font-sans text-[13px] leading-none font-medium whitespace-nowrap text-neutral-800">
+        <div className="absolute top-[89px] left-[297px] flex items-center rounded-full bg-[#9cbcff] px-[6px] py-1">
+          <span className="font-sans text-[8px] leading-none font-medium whitespace-nowrap text-neutral-800">
             Yes
           </span>
         </div>
