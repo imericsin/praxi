@@ -130,7 +130,18 @@ export function DocumentEditor() {
 
       <Toolbar />
 
-      <div className="flex w-full flex-col gap-3 text-zinc-300 sm:gap-5">
+      {/* Body copy sits inset from the card's own edges by more than the
+          header/toolbar above it (Figma: body block at left-82px/width-608px
+          inside a 772px-wide card -- a ~10.6% inset each side -- vs. the
+          toolbar's ~2.3% inset). The extra px-[10.5%] approximates that
+          ratio responsively; it's also what pushes the card's rendered
+          height up to match Figma's taller proportions, since the body
+          text now wraps across more lines at a narrower measure.
+
+          mt-[4.5%] adds the extra breathing room Figma has between the
+          toolbar and this block (~45px in a 905px-tall card, ~5% -- more
+          than the shared gap-2 the rest of the header stack uses). */}
+      <div className="mt-[4.5%] flex w-full flex-col gap-3 px-[10.5%] text-zinc-300 sm:gap-5">
         <div className="flex flex-col gap-1.5">
           <p className="font-sans text-[10px] leading-none font-semibold sm:text-xs">
             Exhibit 10.20
