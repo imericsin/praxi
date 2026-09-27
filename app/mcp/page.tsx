@@ -88,7 +88,7 @@ export default function McpPage() {
         <section
           key={block.title}
           className={`px-margin-x tablet:py-24 desktop:py-28 flex w-full flex-col items-center py-16 ${
-            blockIndex % 2 === 1 ? "bg-[#111]" : "bg-[#0c0a09]"
+            blockIndex % 2 === 1 ? "bg-[#1c1917]" : "bg-[#0c0a09]"
           }`}
         >
           <div className="max-w-section-max-w tablet:flex-row desktop:flex-row flex w-full flex-col items-start gap-16">
