@@ -47,7 +47,7 @@ export function HeroBottomComposition({
   className?: string;
 }) {
   return (
-    <div className={`w-full ${className}`}>
+    <div className={`mx-auto w-full ${className}`} style={{ maxWidth: 1356 }}>
       {/* Below sm: plain stacked flow, no overlap. */}
       <div className="flex w-full flex-col gap-4 sm:hidden">
         <YourDocuments />
@@ -58,7 +58,9 @@ export function HeroBottomComposition({
 
       {/* sm and up: one shared reference frame (aspect-ratio matches the
           Figma canvas) so every panel's percentage offset is measured
-          against the same box. */}
+          against the same box. Capped at 1356px (max-width on the outer
+          wrapper above) -- Figma's own natural illustration width -- so
+          it doesn't stretch wider than its source at large viewports. */}
       <div
         className="relative hidden w-full sm:block"
         style={{ aspectRatio: "1356 / 674" }}
