@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { RevealOverlay } from "@/components/ui/RevealOverlay";
 import { HeroBottomComposition } from "@/components/modules/HeroBottomComposition";
 import { TrustedByLogos } from "@/components/modules/HeroBottomComposition/TrustedByLogos";
 import { SCHEDULE_DEMO_URL } from "@/lib/links";
@@ -48,6 +49,18 @@ export function HeroV2() {
           className="rotate-[-12deg] blur-[60px]"
         />
       </div>
+
+      {/* Masks the glow image's blur and the HeroBottomComposition
+          panels' backdrop-blur settling in behind an opaque black
+          frame, instead of letting that settle-in read as an abrupt
+          "pop" once the browser finishes promoting those elements to
+          their own compositing layers. Sits above the glow (z-10, same
+          layer as the content) but below the actual copy/illustration,
+          which each stack on top of it via their own FadeIn's z-index
+          context -- not literally behind the content, just faded out
+          by the time anything is meant to be legible (delayMs=150 is
+          shorter than FadeIn's own reveal timing). */}
+      <RevealOverlay className="z-10" />
 
       <div className="max-w-section-max-w relative z-10 flex w-full flex-col items-center">
         <div className="flex w-full max-w-[590px] flex-col items-center gap-6">
