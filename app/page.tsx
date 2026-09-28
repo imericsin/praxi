@@ -32,7 +32,7 @@ export default function Home() {
             image: card3,
             title: "Document Hub",
             description:
-              "One system of record for policies, memos, and checklists — scanned against new updates for impact.",
+              "One system of record for policies, memos, and checklists—scanned against new updates for impact.",
           },
         ]}
       />
@@ -43,17 +43,17 @@ export default function Home() {
           {
             title: "Appraiser",
             description:
-              "For revenue teams processing high volumes of contracts — find non-standard agreements and automate revenue recognition reporting.",
+              "Find non-standard agreements and automate revenue recognition reporting. Great for revenue teams processing high volumes of contracts.",
           },
           {
             title: "Scribe",
             description:
-              "For technical accounting and SEC reporting teams — analyze contracts and draft memos and footnotes ready for your financials.",
+              "Analyze contracts and draft memos and footnotes ready for your financials. Ideal for technical accounting and SEC reporting teams.",
           },
           {
             title: "Curator",
             description:
-              "For technical accounting and SEC reporting teams — research judgmental topics and maintain your company's policies and memos.",
+              "Research judgmental topics and maintain your company's policies and memos. For technical accounting and SEC reporting teams.",
           },
         ]}
       />
