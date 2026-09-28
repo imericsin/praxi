@@ -20,19 +20,19 @@ export default function Home() {
             image: card1,
             title: "Contract Review",
             description:
-              "Scan contracts against a library of relevant accounting terms to extract summaries and trace every conclusion back to the exact contract line.",
+              "Scan contracts against a library of accounting terms and trace every conclusion to its source line.",
           },
           {
             image: card2,
             title: "Decision Tree & Memo",
             description:
-              "Pre-built decision trees guide you through complex accounting judgments, so every conclusion lands in an auditable, easily explainable memo.",
+              "Pre-built decision trees guide complex judgments into an auditable, easily explainable memo.",
           },
           {
             image: card3,
             title: "Document Hub",
             description:
-              "One system of record for accounting policies, memos, and checklists — scanned against new accounting updates so you always know what's impacted.",
+              "One system of record for policies, memos, and checklists — scanned against new updates for impact.",
           },
         ]}
       />
@@ -43,17 +43,17 @@ export default function Home() {
           {
             title: "Appraiser",
             description:
-              "For revenue teams processing high volumes of contracts — find the non-standard agreements, document accounting in a checklist, and automate standalone selling price and revenue recognition reporting.",
+              "For revenue teams processing high volumes of contracts — find non-standard agreements and automate revenue recognition reporting.",
           },
           {
             title: "Scribe",
             description:
-              "For technical accounting and SEC reporting teams — analyze contracts, draft memos to reach accounting conclusions, and draft footnotes ready to export into your financial statements.",
+              "For technical accounting and SEC reporting teams — analyze contracts and draft memos and footnotes ready for your financials.",
           },
           {
             title: "Curator",
             description:
-              "For technical accounting and SEC reporting teams — research judgmental accounting topics, benchmark disclosures against peers, and maintain your company's policies and memos in one place.",
+              "For technical accounting and SEC reporting teams — research judgmental topics and maintain your company's policies and memos.",
           },
         ]}
       />
