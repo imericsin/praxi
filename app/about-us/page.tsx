@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { HeadlineSingleColumn } from "@/components/modules/HeadlineSingleColumn";
+import { HeadlineTwoColumn } from "@/components/modules/HeadlineTwoColumn";
 import { FadeIn } from "@/components/ui/FadeIn";
+import investorMucker from "@/public/about-us/investor-mucker.png";
+import investorTechstars from "@/public/about-us/investor-techstars.png";
+import investorUsc from "@/public/about-us/investor-usc.png";
 
 // page_about-us — content/copy sourced from the live production site
 // (https://www.praxi.io/about-us), restyled to match this project's dark
-// design system and built from existing modules (HeadlineSingleColumn is
-// the only new one, added for the "Single Column Blog Style" Figma module,
-// node 145:10663). No dedicated Figma page frame exists for /about-us
-// itself -- structure here is: a short intro band + the single-column
-// module for the "Built by technical accountants..." copy + a simple
-// location block, in that order, mirroring the live page's own content
-// order.
+// design system. The section below the hero is now HeadlineTwoColumn,
+// built for the "Two Column Blog Style" Figma module (node 151:12463) --
+// this replaces the earlier HeadlineSingleColumn treatment for this
+// page per explicit request, matching Figma's real two-column layout
+// (heading/paragraph/CTA + investor logos on the left, a small
+// location block on the right) instead of a single stacked column.
+// No dedicated Figma page frame exists for /about-us itself -- structure
+// here is: a short intro band + the two-column module, mirroring the
+// live page's own content order.
 
 export const metadata: Metadata = {
   title: "About Us — Praxi",
@@ -34,14 +39,37 @@ export default function AboutUsPage() {
         </FadeIn>
       </section>
 
-      <HeadlineSingleColumn
-        headline="Built by technical accountants, for technical accountants"
-        subhead="Located in Los Angeles"
-        paragraph={
-          "Our team has faced the complexities of technical accounting firsthand. We're solving the problems we know best because we've lived them. That's why we built Praxi to free technical accounting teams to focus on what matters most: high-impact judgments.\n\n1631 Electric Avenue\nVenice, California 90291"
+      <HeadlineTwoColumn
+        headline={
+          <>
+            Built by technical accountants,
+            <br />
+            for technical accountants
+          </>
         }
+        paragraph="Our team has faced the complexities of technical accounting firsthand. We're solving the problems we know best because we've lived them. That's why we built Praxi to free technical accounting teams to focus on what matters most: high-impact judgments."
         ctaHref="/#schedule-demo"
         ctaLabel="Schedule Demo →"
+        investorsLabel="Our Investors"
+        logos={[
+          {
+            image: investorMucker,
+            alt: "Mucker Capital",
+            aspect: "aspect-[800/251]",
+          },
+          {
+            image: investorTechstars,
+            alt: "Techstars",
+            aspect: "aspect-[895/358]",
+          },
+          {
+            image: investorUsc,
+            alt: "USC University of Southern California",
+            aspect: "aspect-[800/480]",
+          },
+        ]}
+        asideSubhead="Located in Los Angeles"
+        asideParagraph={"1631 Electric Avenue\nVenice, California 90291"}
       />
     </main>
   );
