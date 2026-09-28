@@ -98,7 +98,7 @@ export function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="w-fit bg-[length:0%_1px] bg-left-bottom bg-no-repeat text-sm leading-none text-white transition-[background-size] duration-200 ease-out hover:bg-[length:100%_1px]"
+                    className="w-fit bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 text-sm leading-none text-white transition-[background-size] duration-200 ease-out hover:bg-[length:100%_1px]"
                     style={{ backgroundImage: "linear-gradient(currentColor, currentColor)" }}
                     {...(link.external
                       ? { target: "_blank", rel: "noopener noreferrer" }
@@ -118,7 +118,7 @@ export function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="w-fit bg-[length:0%_1px] bg-left-bottom bg-no-repeat text-sm leading-none text-white transition-[background-size] duration-200 ease-out hover:bg-[length:100%_1px]"
+                    className="w-fit bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 text-sm leading-none text-white transition-[background-size] duration-200 ease-out hover:bg-[length:100%_1px]"
                     style={{ backgroundImage: "linear-gradient(currentColor, currentColor)" }}
                     {...(link.external
                       ? { target: "_blank", rel: "noopener noreferrer" }
@@ -140,7 +140,7 @@ export function Footer() {
             <Link
               key={link.label}
               href={link.href}
-              className="w-fit bg-[length:0%_1px] bg-left-bottom bg-no-repeat font-sans text-xs leading-4 font-normal whitespace-nowrap text-white transition-[background-size] duration-200 ease-out hover:bg-[length:100%_1px]"
+              className="w-fit bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 font-sans text-xs leading-4 font-normal whitespace-nowrap text-white transition-[background-size] duration-200 ease-out hover:bg-[length:100%_1px]"
               style={{ backgroundImage: "linear-gradient(currentColor, currentColor)" }}
             >
               {link.label}
