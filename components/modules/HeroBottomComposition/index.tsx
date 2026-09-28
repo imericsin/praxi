@@ -120,22 +120,21 @@ export function HeroBottomComposition({
           component's bottom edge and the unfaded gap behind it reads as
           a visible seam/line at the true section background color.
 
-          h-64 (256px) starting ~200px above the box's bottom edge --
-          per explicit request to pull the fade's start point up so it
-          fades out more of the illustration, not just the last sliver
-          near the edge -- while keeping the same bottom anchor
-          (translateY(50%) of the fixed 64px overflow) so it still
-          blends into the gap before the logo row exactly as before.
+          h-96 (384px), starting well above the box's bottom edge --
+          bumped up again from an earlier h-64 (256px) per a further
+          follow-up that the illustration's own bottom edge was still
+          visible before the fade fully covered it. Kept the same
+          bottom anchor (translateY(50%) of the fixed 64px overflow) so
+          it still blends into the gap before the logo row.
 
           The gradient itself reaches full opacity at 75% (not 100%) of
-          this div's height, per a follow-up request: the illustration's
-          own bottom edge needs to already be fully covered by solid
-          background color, not just approaching it right at the box's
-          own boundary -- the last 25% is flat SECTION_BG, not still
-          fading. */}
+          this div's height: the illustration's own bottom edge needs
+          to already be fully covered by solid background color, not
+          just approaching it right at the box's own boundary -- the
+          last 25% is flat SECTION_BG, not still fading. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-64"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-96"
         style={{
           transform: "translateY(50%)",
           background: `linear-gradient(to bottom, transparent, ${SECTION_BG} 75%)`,
