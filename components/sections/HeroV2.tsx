@@ -50,7 +50,7 @@ export function HeroV2() {
         />
       </div>
 
-      <div className="max-w-section-max-w relative z-10 flex w-full flex-col items-center">
+      <div className="max-w-section-max-w relative z-30 flex w-full flex-col items-center">
         <div className="flex w-full max-w-[590px] flex-col items-center gap-6">
           <div className="flex w-full flex-col items-center gap-5">
             {/* Headline splits into per-line FadeIn reveals (each line

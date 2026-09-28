@@ -51,12 +51,16 @@ export function RevealOverlay({
     <div
       aria-hidden
       onTransitionEnd={() => setPhase("removed")}
-      className={`pointer-events-none absolute inset-0 bg-black transition-all ease-out motion-reduce:hidden ${
+      className={`pointer-events-none absolute inset-x-0 bottom-0 -top-32 transition-all ease-out motion-reduce:hidden ${
         phase === "exiting"
           ? "-translate-y-4 opacity-0"
           : "translate-y-0 opacity-100"
       } ${className}`}
-      style={{ transitionDuration: `${durationMs}ms` }}
+      style={{
+        transitionDuration: `${durationMs}ms`,
+        background:
+          "linear-gradient(to bottom, transparent, black 8rem)",
+      }}
     />
   );
 }
