@@ -55,12 +55,15 @@ export function HeroV2() {
                 its own staggered fade-up), matching linear.app's
                 homepage title treatment -- their markup wraps each
                 title line in its own span with an independent reveal,
-                rather than animating the whole headline as one block. */}
+                rather than animating the whole headline as one block.
+                No overflow-hidden on these wrappers: it was clipping
+                the "g" descender in "reimagined" against the tight
+                leading-none line-height. */}
             <h1 className="font-display-large tablet:text-[40px] desktop:text-[48px] flex w-full flex-col items-center text-center text-[32px] leading-none font-medium text-balance text-white">
-              <FadeIn immediate index={0} className="overflow-hidden">
+              <FadeIn immediate index={0}>
                 Technical accounting,
               </FadeIn>
-              <FadeIn immediate index={1} className="overflow-hidden">
+              <FadeIn immediate index={1}>
                 reimagined.
               </FadeIn>
             </h1>
