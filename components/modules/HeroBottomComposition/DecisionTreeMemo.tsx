@@ -72,19 +72,22 @@ export function DecisionTreeMemo({ className = "" }: { className?: string }) {
         {/* Branch connector: SVG ported directly from Figma (replacing
             the earlier CSS-border + HTML-pill approximation) -- both
             the routed No/Yes lines and their pill labels are baked into
-            this single graphic. Capped at 220px wide (viewBox is 170,
-            so this scales it up slightly) and center-aligned in the
-            row, per explicit request -- 165px/right-aligned read too
-            small/off. */}
-        <div className="flex w-full justify-center">
-          <DecisionConnector className="h-auto w-full max-w-[220px]" />
+            this single graphic. Capped at 240px wide (viewBox is 170,
+            so this scales it up) and center-aligned in the row.
+            Negative margins cancel the parent's gap-2 on both sides so
+            it sits flush against the row above and below it instead of
+            adding extra space around an element that already has its
+            own line/spacing baked into the graphic, per explicit
+            request. */}
+        <div className="-my-2 flex w-full justify-center">
+          <DecisionConnector className="h-auto w-full max-w-[240px]" />
         </div>
 
         {/* Row 2: Control (gray, "No" branch) + Transaction Type (blue,
             "Yes" branch), side by side directly under their respective
             pill -- Transaction Type is taller to hold its numbered
             list. */}
-        <div className="flex w-full items-start gap-2 pt-2">
+        <div className="flex w-full items-start gap-2">
           <DecisionNode
             variant="gray"
             label="Control"
