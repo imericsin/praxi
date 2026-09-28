@@ -55,7 +55,7 @@ export function LogoStripMobile() {
   return (
     <section
       data-figma-node="146:11691"
-      className="desktop:hidden tablet:flex-row tablet:items-center tablet:gap-6 px-margin-x flex w-full flex-col items-start gap-7 bg-white pt-10 pb-11"
+      className="desktop:hidden tablet:flex-row tablet:items-start tablet:gap-6 px-margin-x flex w-full flex-col items-center gap-7 bg-white pt-10 pb-11"
     >
       <p className="font-display-small tablet:max-w-[480px] tablet:text-[28px] tablet:flex-1 w-full max-w-[480px] text-[20px] leading-[1.2] font-semibold text-foreground-1">
         Praxi is trusted by 100+ leading businesses
