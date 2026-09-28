@@ -48,14 +48,14 @@ export function Nav() {
       }`}
     >
       <div className="max-w-section-max-w flex w-full items-center justify-between">
-        <div className="relative h-4 w-[73.263px] shrink-0">
+        <Link href="/" className="relative h-4 w-[73.263px] shrink-0">
           <Image
             src={logo}
             alt="Praxi"
             fill
             className="object-contain object-left"
           />
-        </div>
+        </Link>
         <div className="desktop:gap-7 flex items-center gap-6">
           <Link
             href="/about-us"

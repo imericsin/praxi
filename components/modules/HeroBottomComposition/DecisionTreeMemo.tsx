@@ -72,12 +72,12 @@ export function DecisionTreeMemo({ className = "" }: { className?: string }) {
         {/* Branch connector: SVG ported directly from Figma (replacing
             the earlier CSS-border + HTML-pill approximation) -- both
             the routed No/Yes lines and their pill labels are baked into
-            this single graphic. Capped at its near-native 165px width
-            (viewBox is 170 wide) rather than stretched to fill the row --
-            per explicit request, it was rendering far too large when
-            forced to w-full. */}
-        <div className="flex w-full justify-end">
-          <DecisionConnector className="h-auto w-full max-w-[165px]" />
+            this single graphic. Capped at 220px wide (viewBox is 170,
+            so this scales it up slightly) and center-aligned in the
+            row, per explicit request -- 165px/right-aligned read too
+            small/off. */}
+        <div className="flex w-full justify-center">
+          <DecisionConnector className="h-auto w-full max-w-[220px]" />
         </div>
 
         {/* Row 2: Control (gray, "No" branch) + Transaction Type (blue,
