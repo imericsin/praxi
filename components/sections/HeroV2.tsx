@@ -116,10 +116,17 @@ export function HeroV2() {
             finished settling, not simultaneously with it. z-20 here
             only needs to beat this wrapper's own z-10 (HeroBottomComposition
             has no z-index of its own), not the whole section's stacking
-            order. */}
+            order.
+
+            The overlay itself (unlike HeroBottomComposition) DOES break
+            out past the section's px-margin-x via -mx-margin-x -- it's
+            a pure visual mask with no content to keep aligned, so it
+            needs to bleed to the section's true edges. Left inside the
+            padded box, its sides fell short of the section's own edges
+            and left unmasked panel content visible in the gap. */}
         <div className="relative w-full shrink-0">
           <HeroBottomComposition />
-          <RevealOverlay className="z-20" delayMs={1000} />
+          <RevealOverlay className="-mx-margin-x z-20" delayMs={1000} />
         </div>
 
         <FadeIn
