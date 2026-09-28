@@ -18,21 +18,21 @@ export default function Home() {
         cards={[
           {
             image: card1,
-            title: "Expert-Curated Contextual Layer",
+            title: "Contract Review",
             description:
-              "Purpose-built Linear is shaped by the practices and principles of world-class product teams.",
+              "Scan contracts against a library of relevant accounting terms to extract summaries and trace every conclusion back to the exact contract line.",
           },
           {
             image: card2,
-            title: "Agentic Optimized Workflows",
+            title: "Decision Tree & Memo",
             description:
-              "Linear is shaped by the practices and principles of world-class product teams.",
+              "Pre-built decision trees guide you through complex accounting judgments, so every conclusion lands in an auditable, easily explainable memo.",
           },
           {
             image: card3,
-            title: "Comprehensive Source of Truth",
+            title: "Document Hub",
             description:
-              "Linear is shaped by the practices and principles of world-class product teams.",
+              "One system of record for accounting policies, memos, and checklists — scanned against new accounting updates so you always know what's impacted.",
           },
         ]}
       />
@@ -43,17 +43,17 @@ export default function Home() {
           {
             title: "Appraiser",
             description:
-              "Purpose-built Linear is shaped by the practices and principles of world-class product teams.",
+              "For revenue teams processing high volumes of contracts — find the non-standard agreements, document accounting in a checklist, and automate standalone selling price and revenue recognition reporting.",
           },
           {
             title: "Scribe",
             description:
-              "Purpose-built Linear is shaped by the practices and principles of world-class product teams.",
+              "For technical accounting and SEC reporting teams — analyze contracts, draft memos to reach accounting conclusions, and draft footnotes ready to export into your financial statements.",
           },
           {
             title: "Curator",
             description:
-              "Purpose-built Linear is shaped by the practices and principles of world-class product teams.",
+              "For technical accounting and SEC reporting teams — research judgmental accounting topics, benchmark disclosures against peers, and maintain your company's policies and memos in one place.",
           },
         ]}
       />
