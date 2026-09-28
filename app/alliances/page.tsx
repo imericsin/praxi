@@ -47,7 +47,7 @@ const fields: {
 export default function AlliancesPage() {
   return (
     <main className="flex-1">
-      <section className="px-margin-x tablet:pt-40 desktop:pt-48 relative flex w-full flex-col items-center bg-[#0c0a09] pt-32 pb-20">
+      <section className="px-margin-x tablet:pt-40 desktop:pt-48 relative flex w-full flex-col items-center bg-background-reverse pt-32 pb-20">
         <div className="max-w-section-max-w flex w-full flex-col items-center gap-16">
           <FadeIn
             index={0}

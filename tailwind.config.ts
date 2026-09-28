@@ -23,6 +23,7 @@ export default {
         background: {
           1: "#ffffff", // Background/1
           2: "#f5f5f4", // Background/2
+          reverse: "#020202", // color/Reverse
         },
         stone: {
           200: "#e7e5e4", // color/stone-200

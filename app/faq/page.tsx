@@ -53,7 +53,7 @@ const faqs: { question: string; answer: string }[] = [
 export default function FaqPage() {
   return (
     <main className="flex-1">
-      <section className="px-margin-x tablet:pt-40 desktop:pt-48 relative flex w-full flex-col items-center bg-[#0c0a09] pt-32 pb-24">
+      <section className="px-margin-x tablet:pt-40 desktop:pt-48 relative flex w-full flex-col items-center bg-background-reverse pt-32 pb-24">
         <div className="max-w-section-max-w flex w-full flex-col items-start gap-16">
           <FadeIn index={0} className="w-full">
             <h1 className="font-display-large tablet:text-[44px] desktop:text-[52px] w-full text-[32px] leading-[1.15] font-semibold text-balance text-white">
