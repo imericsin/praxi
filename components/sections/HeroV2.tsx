@@ -113,14 +113,13 @@ export function HeroV2() {
             before, just measured from the padded edge instead of the
             true viewport edge.
 
-            index=4 (not 2): the illustration now enters distinctly
-            after the full headline/subhead/button stagger finishes
-            (0-3), matching linear.app's product screenshot coming in
-            after its own copy stagger completes, not interleaved with
-            it. */}
-        <FadeIn immediate index={4} className="relative w-full shrink-0">
+            No FadeIn here anymore -- RevealOverlay's own fade-out
+            already covers the illustration's entrance (it sits on top
+            of this same area while it settles), so a second reveal
+            animation on the illustration itself was redundant. */}
+        <div className="relative w-full shrink-0">
           <HeroBottomComposition />
-        </FadeIn>
+        </div>
 
         <FadeIn
           immediate
