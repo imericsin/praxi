@@ -18,7 +18,7 @@ export function ContractReviewTerms({
 }) {
   return (
     <div
-      className={`flex flex-col gap-4 overflow-hidden rounded-xl border border-white/10 bg-neutral-500/20 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.15)] backdrop-blur-[40px] ${className}`}
+      className={`will-change-[backdrop-filter] flex flex-col gap-4 overflow-hidden rounded-xl border border-white/10 bg-neutral-500/20 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.15)] backdrop-blur-[40px] ${className}`}
     >
       <div className="flex w-full items-center justify-between">
         <p className="font-sans text-xs leading-none font-medium whitespace-nowrap text-white">
