@@ -50,18 +50,6 @@ export function HeroV2() {
         />
       </div>
 
-      {/* Masks the glow image's blur and the HeroBottomComposition
-          panels' backdrop-blur settling in behind an opaque black
-          frame, instead of letting that settle-in read as an abrupt
-          "pop" once the browser finishes promoting those elements to
-          their own compositing layers. Sits above the glow (z-10, same
-          layer as the content) but below the actual copy/illustration,
-          which each stack on top of it via their own FadeIn's z-index
-          context -- not literally behind the content, just faded out
-          by the time anything is meant to be legible (delayMs=150 is
-          shorter than FadeIn's own reveal timing). */}
-      <RevealOverlay className="z-10" />
-
       <div className="max-w-section-max-w relative z-10 flex w-full flex-col items-center">
         <div className="flex w-full max-w-[590px] flex-col items-center gap-6">
           <div className="flex w-full flex-col items-center gap-5">
@@ -116,9 +104,22 @@ export function HeroV2() {
             No FadeIn here anymore -- RevealOverlay's own fade-out
             already covers the illustration's entrance (it sits on top
             of this same area while it settles), so a second reveal
-            animation on the illustration itself was redundant. */}
+            animation on the illustration itself was redundant.
+
+            RevealOverlay is scoped to just this box (not the whole
+            section, as an earlier pass had it) -- the headline/subhead/
+            button need to be visible and animating in immediately, not
+            hidden under the overlay while it waits. delayMs=1000
+            matches the text stagger's own completion time (last text
+            FadeIn is index 3: 300ms delay + 700ms transition), so the
+            image only starts revealing itself once the copy has
+            finished settling, not simultaneously with it. z-20 here
+            only needs to beat this wrapper's own z-10 (HeroBottomComposition
+            has no z-index of its own), not the whole section's stacking
+            order. */}
         <div className="relative w-full shrink-0">
           <HeroBottomComposition />
+          <RevealOverlay className="z-20" delayMs={1000} />
         </div>
 
         <FadeIn
