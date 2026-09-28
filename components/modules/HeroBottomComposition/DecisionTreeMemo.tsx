@@ -53,7 +53,7 @@ export function DecisionTreeMemo({ className = "" }: { className?: string }) {
         <FileSearch className="size-3 text-white" strokeWidth={1.75} />
       </div>
 
-      <div className="flex flex-col gap-2 rounded-md border border-dashed border-[#9cbcff] bg-[#9cbcff]/10 p-2">
+      <div className="flex flex-col gap-2 rounded-md border border-dashed border-[#9cbcff]/50 bg-[#9cbcff]/10 p-2">
         <p className="font-sans text-[8px] leading-none font-medium whitespace-nowrap text-[#9cbcff]">
           Primary Scope Assessment
         </p>
