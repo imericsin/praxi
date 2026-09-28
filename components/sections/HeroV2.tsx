@@ -50,22 +50,28 @@ export function HeroV2() {
 
       <div className="max-w-section-max-w relative z-10 flex w-full flex-col items-center">
         <div className="flex w-full max-w-[590px] flex-col items-center gap-6">
-          <FadeIn
-            immediate
-            index={0}
-            className="flex w-full flex-col items-center gap-5"
-          >
-            <h1 className="font-display-large tablet:text-[40px] desktop:text-[48px] w-full text-center text-[32px] leading-none font-medium text-balance text-white">
-              Technical accounting,
-              <br />
-              reimagined.
+          <div className="flex w-full flex-col items-center gap-5">
+            {/* Headline splits into per-line FadeIn reveals (each line
+                its own staggered fade-up), matching linear.app's
+                homepage title treatment -- their markup wraps each
+                title line in its own span with an independent reveal,
+                rather than animating the whole headline as one block. */}
+            <h1 className="font-display-large tablet:text-[40px] desktop:text-[48px] flex w-full flex-col items-center text-center text-[32px] leading-none font-medium text-balance text-white">
+              <FadeIn immediate index={0} className="overflow-hidden">
+                Technical accounting,
+              </FadeIn>
+              <FadeIn immediate index={1} className="overflow-hidden">
+                reimagined.
+              </FadeIn>
             </h1>
-            <p className="w-full text-center text-lg leading-7 font-normal text-white/60">
-              Research, contract analysis, audit-ready checklists, and memos —
-              all in one platform.
-            </p>
-          </FadeIn>
-          <FadeIn immediate index={1}>
+            <FadeIn immediate index={2} className="w-full">
+              <p className="w-full text-center text-lg leading-7 font-normal text-white/60">
+                Research, contract analysis, audit-ready checklists, and
+                memos — all in one platform.
+              </p>
+            </FadeIn>
+          </div>
+          <FadeIn immediate index={3}>
             <button className="flex items-center justify-center rounded-md bg-white px-4 py-3 font-sans text-xs leading-none font-medium text-black">
               Schedule Demo →
             </button>
@@ -88,14 +94,20 @@ export function HeroV2() {
             the headline/button above -- the composition still centers
             or clamps-left and overflows/fades on the right exactly as
             before, just measured from the padded edge instead of the
-            true viewport edge. */}
-        <FadeIn immediate index={2} className="relative w-full shrink-0">
+            true viewport edge.
+
+            index=4 (not 2): the illustration now enters distinctly
+            after the full headline/subhead/button stagger finishes
+            (0-3), matching linear.app's product screenshot coming in
+            after its own copy stagger completes, not interleaved with
+            it. */}
+        <FadeIn immediate index={4} className="relative w-full shrink-0">
           <HeroBottomComposition />
         </FadeIn>
 
         <FadeIn
           immediate
-          index={3}
+          index={5}
           className="max-w-section-max-w relative z-10 flex w-full flex-col items-center gap-8"
         >
           <p className="w-full text-center font-sans text-xs leading-none font-medium text-[#9ca3af]">
@@ -108,7 +120,7 @@ export function HeroV2() {
       {/* Mobile: static product shot, no tilt. */}
       <FadeIn
         immediate
-        index={2}
+        index={4}
         className="-mx-margin-x tablet:hidden relative z-10 mt-4 aspect-[375/291.7] w-[calc(100%+2*20px)] shrink-0"
       >
         <Image
