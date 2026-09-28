@@ -31,7 +31,7 @@ export function HeroV2() {
     <section
       id="schedule-demo"
       data-figma-node="146:11709"
-      className="px-margin-x tablet:gap-6 tablet:pt-28 tablet:pb-0 desktop:gap-6 desktop:py-28 relative flex w-full flex-col items-center gap-6 overflow-hidden bg-[#020202] py-20"
+      className="px-margin-x tablet:gap-6 tablet:py-28 desktop:gap-6 desktop:py-28 relative flex w-full flex-col items-center gap-6 overflow-hidden bg-[#020202] pt-20 pb-0"
     >
       {/* Blurred color-glow backdrop -- no background color on this or
           any ancestor between it and the section: it needs to show
