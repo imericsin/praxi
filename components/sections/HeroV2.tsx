@@ -33,7 +33,7 @@ export function HeroV2() {
   return (
     <section
       data-figma-node="146:11709"
-      className="px-margin-x tablet:gap-6 tablet:pt-28 tablet:pb-12 desktop:gap-6 desktop:py-28 relative flex w-full flex-col items-center gap-6 overflow-hidden bg-[#020202] pt-20 pb-0"
+      className="px-margin-x tablet:gap-6 tablet:pt-28 desktop:gap-6 desktop:pt-28 desktop:pb-20 relative flex w-full flex-col items-center gap-6 overflow-hidden bg-[#020202] pt-20 pb-0"
     >
       {/* Blurred color-glow backdrop -- no background color on this or
           any ancestor between it and the section: it needs to show
@@ -61,7 +61,7 @@ export function HeroV2() {
                 No overflow-hidden on these wrappers: it was clipping
                 the "g" descender in "reimagined" against the tight
                 leading-none line-height. */}
-            <h1 className="font-display-large tablet:text-[40px] desktop:text-[48px] flex w-full flex-col items-center text-center text-[32px] leading-none font-medium text-balance text-white">
+            <h1 className="font-display-large tablet:text-[40px] desktop:text-[48px] flex w-full flex-col items-center text-center text-[32px] leading-none font-semibold text-balance text-white">
               <FadeIn immediate index={0}>
                 Technical accounting,
               </FadeIn>
@@ -84,10 +84,13 @@ export function HeroV2() {
         </div>
       </div>
 
-      {/* Illustration + logos. Desktop/tablet only -- mobile uses a
-          static product shot below and the separate LogoStripMobile
-          section, same split as the rest of this file's breakpoint
-          handling. */}
+      {/* Illustration (+ logos on desktop only). Desktop/tablet show the
+          illustration; mobile uses a static product shot below instead.
+          Logos used to render inside this wrapper on tablet too, but the
+          user broke tablet out to use the same separate white-background
+          LogoStripMobile section mobile already had (just with its own
+          side-by-side layout) -- see LogoStripMobile.tsx. Desktop is
+          unaffected and still shows its "Trusted by" row here. */}
       <div className="tablet:flex desktop:flex relative z-10 hidden w-full flex-col items-center gap-8">
         {/* No -mx-margin-x breakout here (tried it, then reverted) --
             HeroBottomComposition's own panels sit ~75px inset from its
@@ -132,7 +135,7 @@ export function HeroV2() {
         <FadeIn
           immediate
           index={5}
-          className="max-w-section-max-w relative z-10 flex w-full flex-col items-center gap-8"
+          className="max-w-section-max-w desktop:flex relative z-10 hidden w-full flex-col items-center gap-8"
         >
           <p className="w-full text-center font-sans text-xs leading-none font-medium text-[#9ca3af]">
             Trusted by 100+ Leading Businesses

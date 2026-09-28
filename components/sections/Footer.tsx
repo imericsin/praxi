@@ -54,7 +54,7 @@ export function Footer() {
           index={0}
           className="tablet:items-center desktop:items-center flex w-full flex-1 flex-col items-start gap-6"
         >
-          <p className="font-display-large tablet:text-center desktop:text-center w-full text-[48px] leading-none font-medium text-white">
+          <p className="font-display-large tablet:text-center desktop:text-center w-full text-[48px] leading-none font-semibold text-white">
             Work smarter.
             <br />
             Account with confidence.
