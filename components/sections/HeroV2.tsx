@@ -78,6 +78,17 @@ export function HeroV2() {
           section, same split as the rest of this file's breakpoint
           handling. */}
       <div className="tablet:flex desktop:flex relative z-10 hidden w-full flex-col items-center gap-8">
+        {/* No -mx-margin-x breakout here (tried it, then reverted) --
+            HeroBottomComposition's own panels sit ~75px inset from its
+            fixed-size box's own left edge (Figma's real geometry), so
+            breaking the box out past the section's 20px margin-x just
+            pushed the whole composition further right of the copy above
+            it than intended, reading as extra left padding. Keeping it
+            inside the section's normal padding lines its content up with
+            the headline/button above -- the composition still centers
+            or clamps-left and overflows/fades on the right exactly as
+            before, just measured from the padded edge instead of the
+            true viewport edge. */}
         <FadeIn immediate index={2} className="relative w-full shrink-0">
           <HeroBottomComposition />
         </FadeIn>

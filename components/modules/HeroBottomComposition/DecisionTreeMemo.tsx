@@ -1,11 +1,11 @@
 import { FileSearch } from "lucide-react";
+import { DecisionConnector } from "./DecisionConnector";
 
 // "Decision Tree & Memo" panel -- real flexbox/grid layout, not
 // absolute-positioned illustration. Figma source: node 145:11181. The
-// decision-tree diagram's connector lines are plain CSS borders on
-// flex-positioned wrapper divs rather than hand-coordinate SVG paths --
-// visually equivalent for this simple branch-and-merge shape, and it
-// reflows naturally instead of breaking at arbitrary widths.
+// branch connector between the top Control node and the row below it is
+// the DecisionConnector SVG (ported directly from Figma, replacing an
+// earlier CSS-border approximation), not hand-coded borders/pills.
 
 function DecisionNode({
   label,
@@ -69,23 +69,15 @@ export function DecisionTreeMemo({ className = "" }: { className?: string }) {
           />
         </div>
 
-        {/* Branch connector: one shared horizontal line spanning both
-            columns, with "No" and "Yes" pills sitting on top of it at
-            each column's center -- both branches now visibly connect
-            the top node to the row below, instead of "No" floating
-            disconnected (the previous bug: only the right/Yes side had
-            a border-top at all). */}
-        <div className="relative flex w-full border-t border-[#9cbcff]">
-          <div className="flex w-1/2 justify-center">
-            <span className="absolute top-[-8px] rounded-full border border-[#888] bg-[#40434a] px-1.5 py-0.5 font-sans text-[7px] leading-none font-medium whitespace-nowrap text-zinc-400">
-              No
-            </span>
-          </div>
-          <div className="flex w-1/2 justify-center">
-            <span className="absolute top-[-8px] rounded-full bg-[#9cbcff] px-1.5 py-0.5 font-sans text-[7px] leading-none font-medium whitespace-nowrap text-neutral-800">
-              Yes
-            </span>
-          </div>
+        {/* Branch connector: SVG ported directly from Figma (replacing
+            the earlier CSS-border + HTML-pill approximation) -- both
+            the routed No/Yes lines and their pill labels are baked into
+            this single graphic. Capped at its near-native 165px width
+            (viewBox is 170 wide) rather than stretched to fill the row --
+            per explicit request, it was rendering far too large when
+            forced to w-full. */}
+        <div className="flex w-full justify-end">
+          <DecisionConnector className="h-auto w-full max-w-[165px]" />
         </div>
 
         {/* Row 2: Control (gray, "No" branch) + Transaction Type (blue,
