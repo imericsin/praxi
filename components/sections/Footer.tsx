@@ -19,11 +19,19 @@ const menuLinks = [
   { label: "About", href: "/about-us" },
   { label: "Schedule Demo", href: SCHEDULE_DEMO_URL, external: true },
   { label: "FAQs", href: "/faq" },
-  { label: "Trust Center", href: "/trust-center" },
+  {
+    label: "Trust Center",
+    href: "https://app.vanta.com/praxi.ai/trust/90taui0ldt5b7pig1gf8kl",
+    external: true,
+  },
 ];
 const connectLinks = [
   { label: "Partnerships", href: "/alliances" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/praxi" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/praxi-io/",
+    external: true,
+  },
 ];
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
@@ -110,6 +118,9 @@ export function Footer() {
                     key={link.label}
                     href={link.href}
                     className="w-full text-sm leading-none text-white"
+                    {...(link.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                   >
                     {link.label}
                   </Link>
