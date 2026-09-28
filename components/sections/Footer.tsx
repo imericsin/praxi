@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { SCHEDULE_DEMO_URL } from "@/lib/links";
 import bg from "@/public/footer/bg.png";
 import logo from "@/public/footer/logo.svg";
 
@@ -16,7 +17,7 @@ import logo from "@/public/footer/logo.svg";
 
 const menuLinks = [
   { label: "About", href: "/about-us" },
-  { label: "Schedule Demo", href: "/#schedule-demo" },
+  { label: "Schedule Demo", href: SCHEDULE_DEMO_URL, external: true },
   { label: "FAQs", href: "/faq" },
   { label: "Trust Center", href: "/trust-center" },
 ];
@@ -50,7 +51,9 @@ export function Footer() {
             <br />
             Account with confidence.
           </p>
-          <Button>Schedule Demo →</Button>
+          <Button href={SCHEDULE_DEMO_URL} target="_blank" rel="noopener noreferrer">
+            Schedule Demo →
+          </Button>
         </FadeIn>
       </div>
 
@@ -88,6 +91,9 @@ export function Footer() {
                     key={link.label}
                     href={link.href}
                     className="w-full text-sm leading-none text-white"
+                    {...(link.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                   >
                     {link.label}
                   </Link>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { SCHEDULE_DEMO_URL } from "@/lib/links";
 
 // page_all-integrations — content/copy sourced from the live production
 // site (https://www.praxi.io/all-integrations). No dedicated Figma frame
@@ -70,7 +71,9 @@ export default function AllIntegrationsPage() {
             <p className="font-sans text-lg leading-6 font-semibold text-white">
               See how Praxi works with your existing tools
             </p>
-            <Button href="/#schedule-demo">Schedule Demo →</Button>
+            <Button href={SCHEDULE_DEMO_URL} target="_blank" rel="noopener noreferrer">
+              Schedule Demo →
+            </Button>
           </FadeIn>
         </div>
       </section>

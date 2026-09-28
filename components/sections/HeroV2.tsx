@@ -1,7 +1,9 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { HeroBottomComposition } from "@/components/modules/HeroBottomComposition";
 import { TrustedByLogos } from "@/components/modules/HeroBottomComposition/TrustedByLogos";
+import { SCHEDULE_DEMO_URL } from "@/lib/links";
 import glowBlob from "@/public/hero-v2/glow-blob.png";
 import mobileImage from "@/public/hero/mobile-image.png";
 
@@ -29,7 +31,6 @@ import mobileImage from "@/public/hero/mobile-image.png";
 export function HeroV2() {
   return (
     <section
-      id="schedule-demo"
       data-figma-node="146:11709"
       className="px-margin-x tablet:gap-6 tablet:pt-28 tablet:pb-12 desktop:gap-6 desktop:py-28 relative flex w-full flex-col items-center gap-6 overflow-hidden bg-[#020202] pt-20 pb-0"
     >
@@ -75,9 +76,9 @@ export function HeroV2() {
             </FadeIn>
           </div>
           <FadeIn immediate index={3}>
-            <button className="flex items-center justify-center rounded-md bg-white px-4 py-3 font-sans text-xs leading-none font-medium text-black">
+            <Button href={SCHEDULE_DEMO_URL} target="_blank" rel="noopener noreferrer">
               Schedule Demo →
-            </button>
+            </Button>
           </FadeIn>
         </div>
       </div>

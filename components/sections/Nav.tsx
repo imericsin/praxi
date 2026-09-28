@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { SCHEDULE_DEMO_URL } from "@/lib/links";
 import logo from "@/public/nav/logo.svg";
 
 // section_nav — GLOBAL NAV. Fixed to the top of the viewport at the
@@ -63,7 +64,9 @@ export function Nav() {
           >
             About
           </Link>
-          <Button href="/#schedule-demo">Schedule Demo →</Button>
+          <Button href={SCHEDULE_DEMO_URL} target="_blank" rel="noopener noreferrer">
+            Schedule Demo →
+          </Button>
         </div>
       </div>
     </header>

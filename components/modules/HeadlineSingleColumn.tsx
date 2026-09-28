@@ -14,6 +14,8 @@ interface HeadlineSingleColumnProps {
   paragraph: string;
   ctaHref?: string;
   ctaLabel?: string;
+  /** Opens ctaHref in a new tab (e.g. an external booking link). */
+  ctaExternal?: boolean;
 }
 
 export function HeadlineSingleColumn({
@@ -22,6 +24,7 @@ export function HeadlineSingleColumn({
   paragraph,
   ctaHref,
   ctaLabel = "Schedule Demo →",
+  ctaExternal = false,
 }: HeadlineSingleColumnProps) {
   return (
     <section
@@ -36,7 +39,17 @@ export function HeadlineSingleColumn({
           <p className="font-display-large tablet:text-[36px] desktop:text-[36px] text-foreground-1 w-full text-[28px] leading-[1.2] font-semibold text-balance">
             {headline}
           </p>
-          {ctaHref ? <Button variant="secondary" href={ctaHref}>{ctaLabel}</Button> : null}
+          {ctaHref ? (
+            <Button
+              variant="secondary"
+              href={ctaHref}
+              {...(ctaExternal
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+            >
+              {ctaLabel}
+            </Button>
+          ) : null}
         </FadeIn>
         <FadeIn
           index={1}

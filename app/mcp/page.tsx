@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { SCHEDULE_DEMO_URL } from "@/lib/links";
 
 // page_mcp — content/copy sourced from the live production site
 // (https://www.praxi.io/mcp, "Platform: MCP"). No dedicated Figma frame
@@ -80,7 +81,7 @@ export default function McpPage() {
           <h1 className="font-display-large tablet:text-[44px] desktop:text-[52px] w-full max-w-[792px] text-[32px] leading-[1.15] font-semibold text-balance text-white">
             Your AI model just became a technical accounting expert
           </h1>
-          <Button href="/#schedule-demo">Request Access</Button>
+          <Button href={SCHEDULE_DEMO_URL} target="_blank" rel="noopener noreferrer">Request Access</Button>
         </FadeIn>
       </section>
 
@@ -131,7 +132,7 @@ export default function McpPage() {
           <p className="font-display-large w-full text-[28px] leading-[1.2] font-semibold text-balance text-white">
             A five-minute setup for a smarter AI
           </p>
-          <Button href="/#schedule-demo">Request Access</Button>
+          <Button href={SCHEDULE_DEMO_URL} target="_blank" rel="noopener noreferrer">Request Access</Button>
         </FadeIn>
       </section>
     </main>

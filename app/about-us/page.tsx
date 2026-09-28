@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeadlineTwoColumn } from "@/components/modules/HeadlineTwoColumn";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { SCHEDULE_DEMO_URL } from "@/lib/links";
 import investorMucker from "@/public/about-us/investor-mucker.png";
 import investorTechstars from "@/public/about-us/investor-techstars.png";
 import investorUsc from "@/public/about-us/investor-usc.png";
@@ -48,8 +49,9 @@ export default function AboutUsPage() {
           </>
         }
         paragraph="Our team has faced the complexities of technical accounting firsthand. We're solving the problems we know best because we've lived them. That's why we built Praxi to free technical accounting teams to focus on what matters most: high-impact judgments."
-        ctaHref="/#schedule-demo"
+        ctaHref={SCHEDULE_DEMO_URL}
         ctaLabel="Schedule Demo →"
+        ctaExternal
         investorsLabel="Our Investors"
         logos={[
           {

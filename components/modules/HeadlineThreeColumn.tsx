@@ -1,6 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { SCHEDULE_DEMO_URL } from "@/lib/links";
 
 // module_headline-3-column — headline + 3-up card grid (stacks to 1 column
 // on mobile). Figma: node 65:3514, breakpoints 65:3149/65:3515/65:3536.
@@ -66,7 +67,14 @@ export function HeadlineThreeColumn({
               {subheadline}
             </span>
           </p>
-          <Button variant="secondary">Schedule Demo →</Button>
+          <Button
+            variant="secondary"
+            href={SCHEDULE_DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Schedule Demo →
+          </Button>
         </FadeIn>
         <div className="tablet:flex-row tablet:gap-6 desktop:gap-6 flex w-full flex-col items-start gap-10">
           {cards.map((card, i) => (

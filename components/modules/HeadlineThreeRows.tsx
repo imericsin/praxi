@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { SCHEDULE_DEMO_URL } from "@/lib/links";
 
 // module_headline-3-rows — headline/subcopy beside a divided 3-row list,
 // stacks vertically on mobile. Figma: node 65:3578, breakpoints
@@ -57,7 +58,14 @@ export function HeadlineThreeRows({
           <p className="text-foreground-2 w-full max-w-[480px] text-base leading-6 font-normal">
             {subheadline}
           </p>
-          <Button variant="secondary">Schedule Demo →</Button>
+          <Button
+            variant="secondary"
+            href={SCHEDULE_DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Schedule Demo →
+          </Button>
         </FadeIn>
         <div className="flex w-full flex-1 flex-col items-start gap-6">
           {rows.map((row, i) => (

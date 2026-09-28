@@ -22,6 +22,8 @@ interface HeadlineTwoColumnProps {
   paragraph: string;
   ctaHref?: string;
   ctaLabel?: string;
+  /** Opens ctaHref in a new tab (e.g. an external booking link). */
+  ctaExternal?: boolean;
   investorsLabel: string;
   logos: TwoColumnLogo[];
   asideSubhead: string;
@@ -33,6 +35,7 @@ export function HeadlineTwoColumn({
   paragraph,
   ctaHref,
   ctaLabel = "Schedule Demo →",
+  ctaExternal = false,
   investorsLabel,
   logos,
   asideSubhead,
@@ -56,7 +59,13 @@ export function HeadlineTwoColumn({
               {paragraph}
             </p>
             {ctaHref ? (
-              <Button variant="secondary" href={ctaHref}>
+              <Button
+                variant="secondary"
+                href={ctaHref}
+                {...(ctaExternal
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
                 {ctaLabel}
               </Button>
             ) : null}
