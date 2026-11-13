@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Geist, Inter } from "next/font/google";
 import { Footer } from "@/components/sections/Footer";
 import { Nav } from "@/components/sections/Nav";
 import "../styles/globals.css";
@@ -10,9 +10,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-// Figma `custom/display-large` token = Inter Tight SemiBold (headlines).
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
+// Figma `custom/display-large` token = Geist SemiBold (headlines).
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
 });
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${interTight.variable} h-full antialiased`}
+      className={`${inter.variable} ${geist.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <Nav />

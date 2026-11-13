@@ -24,6 +24,12 @@ export default {
           1: "#ffffff", // Background/1
           2: "#f5f5f4", // Background/2
           reverse: "#020202", // color/Reverse
+          // Fill of the Appraiser/Scribe/Curator "Version 2" page frames
+          // (rgb 250/250/248). Not bound to a Figma variable -- unmapped.
+          3: "#fafaf8",
+        },
+        blue: {
+          700: "#1d4ed8", // color/blue-700
         },
         stone: {
           200: "#e7e5e4", // color/stone-200
@@ -44,8 +50,8 @@ export default {
       // Figma `custom` collection (display-large/display-small) + font-family/sans token.
       fontFamily: {
         sans: ["var(--font-inter)"], // font-family/sans
-        "display-large": ["var(--font-inter-tight)"], // custom/*/display-large
-        "display-small": ["var(--font-inter-tight)"], // custom/*/display-small
+        "display-large": ["var(--font-geist)"], // custom/*/display-large
+        "display-small": ["var(--font-geist)"], // custom/*/display-small
       },
       borderRadius: {},
       fontSize: {},

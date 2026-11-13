@@ -1,2 +1,35 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
+
+/* Display type (Geist) tracking scales with font size: -1.5% at 20px easing
+   to -2.5% at 40px, then -5% for anything larger than 40px (the step is
+   intentional). tan(atan2(1em, 1px)) strips the unit off the element's
+   computed font-size, so this works with any text-* utility. Tune the
+   variables. Components layer so an explicit tracking-* utility can still
+   override. */
+@layer components {
+  .font-display-large,
+  .font-display-small {
+    --track-min-size: 20;
+    --track-max-size: 40;
+    --track-min: 0.015;
+    --track-max: 0.025;
+    --track-large: 0.05;
+    --track-size: tan(atan2(1em, 1px));
+    --track-curve: calc(
+      var(--track-min) + (var(--track-max) - var(--track-min)) *
+        clamp(
+          0,
+          (var(--track-size) - var(--track-min-size)) /
+            (var(--track-max-size) - var(--track-min-size)),
+          1
+        )
+    );
+    /* 0 at <=40px, 1 above it */
+    --track-is-large: clamp(0, (var(--track-size) - var(--track-max-size)) * 1000, 1);
+    letter-spacing: calc(
+      -1em * (var(--track-curve) + (var(--track-large) - var(--track-curve)) *
+            var(--track-is-large))
+    );
+  }
+}
